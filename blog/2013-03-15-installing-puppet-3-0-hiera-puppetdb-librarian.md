@@ -7,9 +7,9 @@ tags:
 +++
 ## What we are doing
 
-So Puppet 3.0 recently came out. It has Hiera support built in. Along with this PuppetDB 1.0 was released, which is supposed to be a very handy and very fast means of centrally storing catalogs and facts about your Puppet clients. Librarian is a project I recently ran across that helps coordinate the modules in your Puppet environment, unfortunately its not packaged.  I don&#8217;t usually like using Puppet Lab&#8217;s softwre repositories directly, but am for this because the software isn&#8217;t in EPEL yet.
+So Puppet 3.0 recently came out. It has Hiera support built in. Along with this PuppetDB 1.0 was released, which is supposed to be a very handy and very fast means of centrally storing catalogs and facts about your Puppet clients. Librarian is a project I recently ran across that helps coordinate the modules in your Puppet environment, unfortunately its not packaged.  I don't usually like using Puppet Lab's softwre repositories directly, but am for this because the software isn't in EPEL yet.
 
-So all I&#8217;m really doing is help layout a proof of concept environment using these tools.
+So all I'm really doing is help layout a proof of concept environment using these tools.
 
 ## Software
 
@@ -20,8 +20,8 @@ So all I&#8217;m really doing is help layout a proof of concept environment usin
 
 ## Prerequisites
 
-  * You have enabled [PuppetLab&#8217;s repositories](docs.puppetlabs.com/guides/puppetlabs_package_repositories.html "PuppetLabs package repositories documentation").
-  * You are **not** going to implement it this way in production.  That would be bad, m&#8217;kay?
+  * You have enabled [PuppetLab's repositories](docs.puppetlabs.com/guides/puppetlabs_package_repositories.html "PuppetLabs package repositories documentation").
+  * You are **not** going to implement it this way in production.  That would be bad, m'kay?
   * You are going to notice than installing librarian as a gem completely overwrites your package installed version, thus validating why this in production is **bad**.
 
 ## Installation
@@ -34,7 +34,7 @@ gem install librarian-puppet # don't forget the -puppet... librarian is somethin
 
 Reference: http://docs.puppetlabs.com/puppetdb/1/connect\_puppet\_master.html
 
-  * Make sure your fqdn is resolveable. Right now we are using a single host, so I&#8217;m just using localhost not the fqdn.
+  * Make sure your fqdn is resolveable. Right now we are using a single host, so I'm just using localhost not the fqdn.
   * Populate /etc/puppet/puppetdb.conf with the following <pre class="lang:default decode:true " >[main]
 server = localhost
 port = 8081</pre>
@@ -48,7 +48,7 @@ ssl-host = puppetmaster.example.com</pre>
 
 ## Initialization of Puppet and PuppetDB
 
-So PuppetDB&#8217;s SSL setup is very strict. For now, just make sure that you are
+So PuppetDB's SSL setup is very strict. For now, just make sure that you are
 
 <pre class="lang:default decode:true " >/etc/init.d/puppet start
 /etc/init.d/puppetmaster start

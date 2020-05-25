@@ -1,12 +1,12 @@
 +++
-title = 'git reference guide &#8211; part one'
+title = 'git reference guide - part one'
 date = 2011-09-05T16:29:49-05:00
 tags:
   "development",
   "git",
 ]
 +++
-I&#8217;m still getting used to utilizing git for my version control. The part I like most is the merge handling. So here is another reference post for me, hopefully it will help me remember bits of my git work flow. Mostly basics, and some I do not need to remind myself, but it does not hurt to document.
+I'm still getting used to utilizing git for my version control. The part I like most is the merge handling. So here is another reference post for me, hopefully it will help me remember bits of my git work flow. Mostly basics, and some I do not need to remind myself, but it does not hurt to document.
 
   * Checkout repository <pre class="lang:sh decode:true " >#Standard methods
 <a title="git-clone man page" href="http://www.kernel.org/pub/software/scm/git/docs/git-clone.html">git clone</a> git://<em>URL</em> <em>[directory name]</em>
@@ -39,11 +39,11 @@ git commit <em>path/to/file</em> <em>[more files]</em></pre>
     
     Some useful options
     
-      * &#8211;find-renames, -M _n_%
-      * &#8211;output-directory, -o _dir_
-      * &#8211;numbered, -n
-      * &#8211;unnumbered, -N
-      * &#8211;signoff, -s
+      * -find-renames, -M _n_%
+      * -output-directory, -o _dir_
+      * -numbered, -n
+      * -unnumbered, -N
+      * -signoff, -s
   * Directly send locally committed patch via e-mail (see man page for Gmail config) <pre class="lang:sh decode:true " ><a title="git send-email man page" href="http://www.kernel.org/pub/software/scm/git/docs/git-send-email.html">git send-email</a> --subject=<em>SUBJECT</em> --to=<em>address</em> <em>[--to=additional]</em> <em>file.patch</em></pre>
 
   * Apply a patch set <pre class="lang:sh decode:true " ><a title="git am man page" href="http://www.kernel.org/pub/software/scm/git/docs/git-am.html">git am</a> --signoff <em>file.patch</em></pre>

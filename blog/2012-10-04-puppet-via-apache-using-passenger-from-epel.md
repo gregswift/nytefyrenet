@@ -6,7 +6,7 @@ tags:
   "puppet",
 ]
 +++
-I put together this serious of steps a few years ago long before Passenger made its way into Fedora/EPEL, when it was required putting together write ups from all over the place. Its easier now, but I&#8217;ve updated it and am publishing it to my blog because someone had expressed interest, and for my own use.
+I put together this serious of steps a few years ago long before Passenger made its way into Fedora/EPEL, when it was required putting together write ups from all over the place. Its easier now, but I've updated it and am publishing it to my blog because someone had expressed interest, and for my own use.
 
 The goal of this set of steps is to enable the serving of Puppet through Apache using the Passenger module. mod\_passenger to ruby what mod\_cgi is to perl and mod_wsgi is to python. You would want to use this because Puppetmaster itself does not scale as well to large numbers of puppets. There are other options, but the whole thing is discussed more [here](http://projects.puppetlabs.com/projects/puppet/wiki/Puppet_Scalability).
 
@@ -20,7 +20,7 @@ The goal of this set of steps is to enable the serving of Puppet through Apache 
 
   * Install puppet and other packages:  
     `yum install --enablerepo=epel-testing httpd mod_ssl puppet-server mod_passenger` 
-  * Populate /etc/httpd/conf.d/puppetmaster.conf with the following block. There is a sample &#8216;apache2.conf&#8217; file that comes with the puppet package, but its never worked for me: <pre class="lang:default decode:true " ># you probably want to tune these settings
+  * Populate /etc/httpd/conf.d/puppetmaster.conf with the following block. There is a sample 'apache2.conf' file that comes with the puppet package, but its never worked for me: <pre class="lang:default decode:true " ># you probably want to tune these settings
 PassengerHighPerformance on
 PassengerMaxPoolSize 12
 PassengerPoolIdleTime 1500
@@ -66,7 +66,7 @@ Listen 8140
 
   * Optional 
       * Set ServerName value in the VirtualHost block
-      * Change the ssl cert file names from &#8216;puppet.pem&#8217; to match your local environment
+      * Change the ssl cert file names from 'puppet.pem' to match your local environment
       * Set the correct puppet paths for ssl certificates in your environment
   * Create rack directory structure  
     `mkdir -p /usr/share/puppet/rack/puppetmasterd/{public,tmp}`

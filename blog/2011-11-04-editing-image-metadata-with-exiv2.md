@@ -43,7 +43,7 @@ So it says in bold up there that this image was taken on March 10th, 2001 at 03:
 
 <pre>[xaeth@nytefyre Maternity]$ exiv2 <span style="color: #00ccff;">-Y 10</span> <span style="color: #00ff00;">-O 7</span> <span style="color: #ff00ff;">-D 5</span> <span style="color: #ff0000;">-a 12:00:00</span> <span style="color: #ff6600;">ad</span> image.jpg</pre>
 
-The command does not return a visible success, which is very common for *nix applications.  But before we verify it you might be asking youself, &#8220;self, what the heck is that <span style="color: #ff6600;">ad</span> in the middle of his command?&#8221;.  Well self, that is an _action_, telling exiv2 that it has to do something.  This is optional if the switches you are providing imply it.  All the switches I am using do, so my use was just overly explicit.  Anyway, as I was saying, there are other ways to verify if the command ran successfully that I won&#8217;t go into here, but what better way than to check the metadata again!
+The command does not return a visible success, which is very common for *nix applications.  But before we verify it you might be asking youself, "self, what the heck is that <span style="color: #ff6600;">ad</span> in the middle of his command?".  Well self, that is an _action_, telling exiv2 that it has to do something.  This is optional if the switches you are providing imply it.  All the switches I am using do, so my use was just overly explicit.  Anyway, as I was saying, there are other ways to verify if the command ran successfully that I won't go into here, but what better way than to check the metadata again!
 
 <pre>[xaeth@nytefyre Maternity]$ exiv2 image.jpg
  File name       : image.jpg
@@ -76,4 +76,4 @@ Yay!  Now I just do a quick loop through all the pictures in the directory and 
 
 <pre>[xaeth@nytefyre Maternity]$ for image in *; do exiv2 <span style="color: #00ccff;">-Y 10</span> <span style="color: #00ff00;">-O 7</span> <span style="color: #ff00ff;">-D 5</span> <span style="color: #ff0000;">-a 12</span> ${image}; done</pre>
 
-and voila&#8230; several dozen reasonably corrected dates in the metadata of those images.  If you noticed the command was slightly different, good for you.  For the actual loop I used the shortened time adjustment I mentioned earlier and left off the <span style="color: #ff6600;">ad</span>.
+and voila... several dozen reasonably corrected dates in the metadata of those images.  If you noticed the command was slightly different, good for you.  For the actual loop I used the shortened time adjustment I mentioned earlier and left off the <span style="color: #ff6600;">ad</span>.

@@ -20,7 +20,7 @@ Thus telling puppet how to order these stages.  An alternate way would be:
 > <pre>stage { 'pre': before =&gt; Stage['main'] }
 stage { 'post': require =&gt; Stage['main'] }</pre>
 
-It all depends on your style. So now that we have created the alternate stages, and told puppet what the ordering of these stages is, how do we associate our classes inside them?  It is fairly simple, when you are including a class or module you pass it in as a _class parameter._  To do this they introduced an alternate method of &#8220;including&#8221; a class.  Before you would use one of these two methods:
+It all depends on your style. So now that we have created the alternate stages, and told puppet what the ordering of these stages is, how do we associate our classes inside them?  It is fairly simple, when you are including a class or module you pass it in as a _class parameter._  To do this they introduced an alternate method of "including" a class.  Before you would use one of these two methods:
 
 > <pre>class base {
     require users
@@ -67,4 +67,4 @@ Maybe this seems fairly obvious to people already using stages, but it took me a
 
 &nbsp;
 
-**UPDATE:** PuppetLabs&#8217; [stdlib module](http://forge.puppetlabs.com/puppetlabs/stdlib "PuppetLabs' stdlib module") provides a &#8216;deeper&#8217; staging setup.  Here is the [manifest](https://github.com/puppetlabs/puppetlabs-stdlib/blob/master/manifests/stages.pp "Puppetlabs stdlib stages.pp") in github.
+**UPDATE:** PuppetLabs' [stdlib module](http://forge.puppetlabs.com/puppetlabs/stdlib "PuppetLabs' stdlib module") provides a 'deeper' staging setup.  Here is the [manifest](https://github.com/puppetlabs/puppetlabs-stdlib/blob/master/manifests/stages.pp "Puppetlabs stdlib stages.pp") in github.

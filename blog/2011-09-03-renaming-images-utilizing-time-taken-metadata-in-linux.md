@@ -5,13 +5,13 @@ tags:
   "development",
 ]
 +++
-This is more of a reminder for myself, but i figured I&#8217;d put it here.  The wifey wanted me to fix the naming on some pictures so that they were named based on their date.  Instead of manually doing so a quick search on Google showed me that the identify program that comes with the ImageMagick package in Linux will give me access to the data on the command line.  Taking the data and some awk-fu I threw together this quick one liner:
+This is more of a reminder for myself, but i figured I'd put it here.  The wifey wanted me to fix the naming on some pictures so that they were named based on their date.  Instead of manually doing so a quick search on Google showed me that the identify program that comes with the ImageMagick package in Linux will give me access to the data on the command line.  Taking the data and some awk-fu I threw together this quick one liner:
 
 > <pre>for x in IMG*; do newname=`identify -verbose ${x} | awk '/date:modify/ {sub(/T/,"_"); gsub(/:/,"-"); split($2,stamp,"-"); print stamp[1]stamp[2]stamp[3]stamp[4]stamp[5] }'`; echo mv ${x} ${newname}.jpg; done</pre>
 
 Since I am actually pretty prone to trial and error as I make my one-liners, I prefer for the command to print my commands out instead of executing them.  Makes it easier to spot errors before execution, and is just a simple copy-paste away from execution.
 
-I&#8217;d break this out into a moreable block, but the awk section kinda goes on and on,  but here goes a breakdown
+I'd break this out into a moreable block, but the awk section kinda goes on and on,  but here goes a breakdown
 
 <pre>#The source images all start with IMG, so IMG* tells for to loop through all of them
 for x in IMG*

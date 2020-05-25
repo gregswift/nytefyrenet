@@ -1,6 +1,7 @@
 +++
 title = "Kickstarting Fedora 21 Workstation with Cobbler"
 date = 2015-02-25T12:35:09-05:00
+sort_by = date
 tags = [
   "general",
 ]
@@ -21,19 +22,22 @@ But you want to know how to kickstart Fedora 21.  Lets move that direction...
 
 One of the first things I established was a Cobbler instance and downloaded the Fedora 21 Workstation media. Let's import it.
 
-<pre class="lang:default decode:true " ># mount -o loop Fedora-Live-Workstation-x86_64-21-5.iso /mnt
+```
+# mount -o loop Fedora-Live-Workstation-x86_64-21-5.iso /mnt
 mount: /dev/loop0 is write-protected, mounting read-only
 # cobbler import --path=/mnt --name=f21 --kickstart=/var/lib/cobbler/kickstarts/default.ks
 task started: 2015-02-25_004424_import
 task started (id=Media import, time=Wed Feb 25 00:44:24 2015)
 No signature matched in /var/www/cobbler/ks_mirror/f21
-!!! TASK FAILED !!!</pre>
+!!! TASK FAILED !!!
+```
 
 If you dig into this a bit you will find that the Live Workstation doesn't have the bits necessary to match any of the signatures, and updating the signatures isn't the solution.  A cursory google search shows that the recommended path for kickstarting Fedora 21 is to use the Server media with the Fedora 21 Everything repository. So we go download the Server DVD (or netinstall) and start syncing the Everything repository.
 
 > Quick aside. What really happened in my late nights of making this happen was that I found the above information, but confused the Everything repository with the Server Everything iso. So I started with just the Everything ISO, which isn't an actual bootable iso with a installer. This led to weeping and gnashing of teeth. After a while of poking and prodding at this and reading poor documentation I realized there was a base Everything repository too. Then, because of my bandwidth limitations, I had to go sync the repository elsewhere, and manually import it into the environment.
 
-<pre class="lang:default decode:true " ># mount -o loop Fedora-Server-DVD-x86_64-21/Fedora-Server-DVD-x86_64-21.iso /mnt
+```
+# mount -o loop Fedora-Server-DVD-x86_64-21/Fedora-Server-DVD-x86_64-21.iso /mnt
 mount: /dev/loop0 is write-protected, mounting read-only
 # cobbler import --path=/mnt --name=f21 --kickstart=/var/lib/cobbler/kickstarts/default.ks
 task started: 2015-02-25_004627_import
@@ -44,7 +48,7 @@ Found a candidate signature: breed=redhat, version=fedora21
 Found a matching signature: breed=redhat, version=fedora21
 Adding distros from path /var/www/cobbler/ks_mirror/f21:
 creating new distro: f21-x86_64
-trying symlink: /var/www/cobbler/ks_mirror/f21 -&gt; /var/www/cobbler/links/f21-x86_64
+trying symlink: /var/www/cobbler/ks_mirror/f21 -> /var/www/cobbler/links/f21-x86_64
 creating new profile: f21-x86_64
 associating repos
 checking for rsync repo(s)
@@ -65,7 +69,8 @@ run, reposync, run!
 creating: /var/www/cobbler/repo_mirror/f21-everything-64/config.repo
 creating: /var/www/cobbler/repo_mirror/f21-everything-64/.origin/f21-everything-64.repo
 running: /usr/bin/reposync -n -n -d -m --config=/var/www/cobbler/repo_mirror/f21-everything-64/.origin/fedora-21-everything-64.repo --repoid=f21-everything-64 --download_path=/var/www/cobbler/repo_mirror -a x86_64
-... something i didn't copy to finish off the statement.</pre>
+... something i didn't copy to finish off the statement.
+```
 
 Awesomeness. That's done. I then added this repo to my f21 profile, and tried to kickstart. Using the simple default kickstart from cobbler, the kicking succeeded. However I only had a server instance due to not defining custom package sets.
 

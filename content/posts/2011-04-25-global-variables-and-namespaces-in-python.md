@@ -1,6 +1,7 @@
 +++
 title = "Global Variables and Namespaces in python"
 date = 2011-04-25T09:45:13-05:00
+sort_by = date
 tags = [
   'development',
 ]
@@ -13,7 +14,8 @@ A global variable can be called from inside any namespace, but without a special
 
 Here is some sample code that show this in action:
 
-<pre class="lang:python decode:true " >#!/usr/bin/python
+```python
+#!/usr/bin/python
 GLOBAL = True
 def changesGlobal(newval):
     global GLOBAL
@@ -32,4 +34,5 @@ changesGlobal(False)
 print "After 'changesGlobal' GLOBAL is %s" % GLOBAL
 
 doesntChangeGlobal(True)
-print "After 'doesntChangeGlobal' GLOBAL is %s" % GLOBAL</pre>
+print "After 'doesntChangeGlobal' GLOBAL is %s" % GLOBAL
+```

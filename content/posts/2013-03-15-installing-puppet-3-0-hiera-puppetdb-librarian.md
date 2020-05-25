@@ -1,6 +1,7 @@
 +++
 title = "installing puppet 3.0 + hiera + puppetdb + librarian"
 date = 2013-03-15T10:29:14-05:00
+sort_by = date
 tags = [
   "general",
 ]
@@ -13,65 +14,92 @@ So all I'm really doing is help layout a proof of concept environment using thes
 
 ## Software
 
-  * [Puppet 3.0](http://projects.puppetlabs.com/ "Puppet project page")
-  * [Hiera](https://github.com/rodjek/librarian-puppet "Hiera project page")
-  * [PuppetDB](projects.puppetlabs.com/projects/puppetdb "PuppetDB project page")
-  * [Librarian](https://github.com/rodjek/librarian-puppet "Librarian project page")
+* [Puppet 3.0](http://projects.puppetlabs.com/ "Puppet project page")
+* [Hiera](https://github.com/rodjek/librarian-puppet "Hiera project page")
+* [PuppetDB](projects.puppetlabs.com/projects/puppetdb "PuppetDB project page")
+* [Librarian](https://github.com/rodjek/librarian-puppet "Librarian project page")
 
 ## Prerequisites
 
-  * You have enabled [PuppetLab's repositories](docs.puppetlabs.com/guides/puppetlabs_package_repositories.html "PuppetLabs package repositories documentation").
-  * You are **not** going to implement it this way in production.  That would be bad, m'kay?
-  * You are going to notice than installing librarian as a gem completely overwrites your package installed version, thus validating why this in production is **bad**.
+* You have enabled [PuppetLab's repositories](docs.puppetlabs.com/guides/puppetlabs_package_repositories.html "PuppetLabs package repositories documentation").
+* You are **not** going to implement it this way in production.  That would be bad, m'kay?
+* You are going to notice than installing librarian as a gem completely overwrites your package installed version, thus validating why this in production is **bad**.
 
 ## Installation
 
-<pre class="lang:default decode:true " >yum install puppet puppetdb puppetdb-terminus
+```bash
+yum install puppet puppetdb puppetdb-terminus
 gem install librarian-puppet # don't forget the -puppet... librarian is something different
-</pre>
+```
 
 ## Configuration
 
 Reference: http://docs.puppetlabs.com/puppetdb/1/connect\_puppet\_master.html
 
-  * Make sure your fqdn is resolveable. Right now we are using a single host, so I'm just using localhost not the fqdn.
-  * Populate /etc/puppet/puppetdb.conf with the following <pre class="lang:default decode:true " >[main]
+* Make sure your fqdn is resolveable. Right now we are using a single host, so I'm just using localhost not the fqdn.
+* Populate /etc/puppet/puppetdb.conf with the following
+```config
+[main]
 server = localhost
-port = 8081</pre>
+port = 8081
+```
 
-  * Set the puppetdb server in /etc/puppet/puppet.conf <pre class="lang:default decode:true " >[master]
+* Set the puppetdb server in /etc/puppet/puppet.conf
+```config
+[master]
 storeconfigs = true
-storeconfigs_backend = puppetdb</pre>
+storeconfigs_backend = puppetdb
+```
 
-  * If you are using a separate host ensure that /etc/puppetdb/jetty.ini has the servername set to our fqdn. If its unpopulated, check it again after you run puppetdb-ssl-setup below. <pre class="lang:default decode:true " >host = puppetmaster.example.com
-ssl-host = puppetmaster.example.com</pre>
+* If you are using a separate host ensure that /etc/puppetdb/jetty.ini has the servername set to our fqdn. If its unpopulated, check it again after you run puppetdb-ssl-setup below.
+```ini
+host = puppetmaster.example.com
+ssl-host = puppetmaster.example.com
+```
 
 ## Initialization of Puppet and PuppetDB
 
 So PuppetDB's SSL setup is very strict. For now, just make sure that you are
 
-<pre class="lang:default decode:true " >/etc/init.d/puppet start
+```bash
+/etc/init.d/puppet start
 /etc/init.d/puppetmaster start
 /usr/sbin/puppetdb-ssl-setup
-/etc/init.d/puppetdb start</pre>
+/etc/init.d/puppetdb start
+```
 
 ## Adding modules using Librarian
 
 Reference: https://github.com/rodjek/librarian-puppet/blob/master/README.md
 
-  * First, prepare your puppet install for Librarian to control your modules directory <pre class="lang:default decode:true " >cd /etc/puppet
+* First, prepare your puppet install for Librarian to control your modules directory
+```bash
+cd /etc/puppet
 rm -rf modules
-librarian-puppet init</pre>
+librarian-puppet init
+```
 
-  * This will have created a PuppetFile in /etc/puppet
-  * Add a puppet forge module into PuppetFile <pre class="lang:default decode:true " >mod 'puppetlabs/stdlib'</pre>
+* This will have created a PuppetFile in /etc/puppet
+* Add a puppet forge module into PuppetFile
+```config
+mod 'puppetlabs/stdlib'
+```
 
-  * Add a module from a git repository into PuppetFile <pre class="lang:default decode:true " >mod "augeasproviders",
-:git =&gt; "https://github.com/hercules-team/augeasproviders.git"</pre>
+* Add a module from a git repository into PuppetFile
+```ruby
+mod "augeasproviders",
+:git => "https://github.com/hercules-team/augeasproviders.git"
+```
 
-  * Tell librarian to build your modules directory <pre class="lang:default decode:true " >librarian-puppet install</pre>
+* Tell librarian to build your modules directory
+```bash
+librarian-puppet install
+```
 
-  * Check out your handy work <pre class="lang:default decode:true " >ls /etc/puppet/modules</pre>
+* Check out your handy work
+```bash
+ls /etc/puppet/modules
+```
 
 ## Configuring Hiera and preloading some data
 

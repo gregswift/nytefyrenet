@@ -1,6 +1,7 @@
 +++
 title = "xkcd's How to write good code"
 date = 2011-01-08T18:03:02-05:00
+sort_by = date
 tags = [
   'development',
 ]

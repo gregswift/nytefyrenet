@@ -1,6 +1,7 @@
 +++
 title = "nokia connection 2011"
 date = 2011-06-20T22:01:45-05:00
+sort_by = date
 tags = [
   "meego",
   "nokia",

@@ -1,6 +1,7 @@
 +++
 title = "the begining of the end for meego and nokia?"
 date = 2011-02-11T07:55:54-05:00
+sort_by = date
 tags = [
   "meego",
   "nokia",

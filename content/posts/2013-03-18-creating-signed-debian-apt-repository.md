@@ -1,6 +1,7 @@
 +++
 title = "Creating signed debian apt repository"
 date = 2013-03-18T22:25:18-05:00
+sort_by = date
 tags = [
   "general",
   "linux",
@@ -26,51 +27,62 @@ Once the private key was created I removed the original gpg keypair for that use
 
 Next, we need to lay down a two things. A directory and a config file. In my example the directory will be the root of your domain on a web server. I'm not going to go into how to setup a web server here.
 
-<pre class="left-set:false right-set:false toolbar:2 whitespace-before:0 lang:default decode:true " >mkdir -p /srv/repo.example.com/debian</pre>
+```bash
+mkdir -p /srv/repo.example.com/debian
+```
 
 The config file is for apt-ftparchive to generate the Releases file. Following the instructions from [Automatic Debian Package Repository HOWTO](http://people.connexer.com/~roberto/howtos/debrepository "Automatic Debian Package Repository HOWTO") we generate _/srv/repo.com/debian/Releases.conf_
 
-<pre class="lang:default decode:true " >APT::FTPArchive::Release::Origin "Your name or organization";
+```bash
+APT::FTPArchive::Release::Origin "Your name or organization";
 APT::FTPArchive::Release::Label "Descriptive label";
 APT::FTPArchive::Release::Suite "stable";
 APT::FTPArchive::Release::Codename "debian";
 APT::FTPArchive::Release::Architectures "noarch";
 APT::FTPArchive::Release::Components "main";
 APT::FTPArchive::Release::Description "More detailed description";
-</pre>
+
+```
 
 In my repository we only have noarch packages. No source packages, no architecture specific. Adjust that field as is necessary for your repository. We also only have one component section. I don't even think it ends up being relevant to this simple of a repository, the same as Suite. What matters is that the codename matches your directory. I used _debian_ for both, because ours is not specific to a Debian release such as "squeeze" or "wheezy".
 
 With these files in place I created the following script to build the repository, and saved it as _/usr/local/bin/buildrepo.sh_:
 
-<pre class="lang:default decode:true " >#!/bin/sh
+```bash
+#!/bin/sh
 ## Assign basic configuration
 USER=bob
 SOURCE=/home/${USER}/RELEASES
 TARGET=/srv/repo.example.com/debian
 GPGDIR=/home/${USER}/.gnupg
-GPGKEY=&lt;insert id of the subkey here just to be specific&gt;
+GPGKEY=<insert id of the subkey here just to be specific>
 ## Do the actual work
 rm -f ${TARGET}/Release.gpg
 rsync -a ${SOURCE}/*.deb ${TARGET}/
-dpkg-scanpackages --multiversion ${TARGET} /dev/null &gt; ${TARGET}/Packages
-gzip -9c ${TARGET}/Packages &gt; ${TARGET}/Packages.gz
-apt-ftparchive -c=${TARGET}/Release.conf release ${TARGET} &gt; ${TARGET}/Release
+dpkg-scanpackages --multiversion ${TARGET} /dev/null > ${TARGET}/Packages
+gzip -9c ${TARGET}/Packages > ${TARGET}/Packages.gz
+apt-ftparchive -c=${TARGET}/Release.conf release ${TARGET} > ${TARGET}/Release
 gpg -a --homedir ${GPGDIR} --default-key ${GPGKEY} -o ${TARGET}/Release.gpg ${TARGET}/Release
-</pre>
+```
 
 This script assumes that the packages are being uploaded to the _RELEASES_ directory of the user _bob_.
 
 I create both Packages and Packages.gz because i didn't like seeing the Ign message when I did an apt-get update. You could consolidate it down to the one line and have just a single file.
 
-Now for the fun part. With Incron you can configure the execution of a command/script based on filesystem events. Since packages are being pushed into /home/bob/RELEASES we want to monitor that directory. We have a large number of file event types we could trigger from, as can be seen under [inotify events of this man page.](http://linux.die.net/man/7/inotify "inotify man page") For our purposes **IN_CREATE** was what I used. I need to verify as **IN\_CLOSE\_WRITE** might be better for larger files. To configure this I run <span class="lang:default decode:true  crayon-inline " >incrontab -e</span> and added the following entry:
+Now for the fun part. With Incron you can configure the execution of a command/script based on filesystem events. Since packages are being pushed into /home/bob/RELEASES we want to monitor that directory. We have a large number of file event types we could trigger from, as can be seen under [inotify events of this man page.](http://linux.die.net/man/7/inotify "inotify man page") For our purposes **IN_CREATE** was what I used. I need to verify as **IN\_CLOSE\_WRITE** might be better for larger files. To configure this I run <span class="lang:bash decode:true  crayon-inline " >incrontab -e</span> and added the following entry:
 
-<pre class="left-set:false right-set:false toolbar:2 whitespace-before:0 lang:default decode:true " >/home/bob/RELEASES IN_CREATE /usr/local/bin/buildrepo.sh</pre>
+```bash
+/home/bob/RELEASES IN_CREATE /usr/local/bin/buildrepo.sh
+```
 
 That's it! Now if you push a deb package into /home/bob/RELEASES the repository will get generated. The resulting repository can be accessed by configuring the following source on a client system.
 
-<pre class="left-set:false right-set:false toolbar:2 whitespace-before:0 lang:default decode:true " >deb http://repo.example.com/ debian/</pre>
+```bash
+deb http://repo.example.com/ debian/
+```
 
 Extra credit: add your public key to the /srv/repo.example.com/ directory so that users can add it to their local apt-key ring, which will otherwise complain.
 
-<pre class="left-set:false right-set:false toolbar:2 whitespace-before:0 lang:default decode:true " >wget -O - http://repo.example.com/pubkey.gpg | sudo apt-key add -</pre>
+```bash
+wget -O - http://repo.example.com/pubkey.gpg | sudo apt-key add -
+```

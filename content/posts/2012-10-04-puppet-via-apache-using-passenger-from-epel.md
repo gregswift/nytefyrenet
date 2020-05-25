@@ -1,6 +1,7 @@
 +++
 title = "puppet via apache using passenger from epel"
 date = 2012-10-04T09:51:36-05:00
+sort_by = date
 tags = [
   "linux",
   "puppet",
@@ -12,15 +13,19 @@ The goal of this set of steps is to enable the serving of Puppet through Apache 
 
 ## Pre-requisites
 
-  * RHEL 6 or clone installed
-  * EPEL enabled on server (preferably with epel-release RPM)
-  * The knowledge to do the above without my help
+* RHEL 6 or clone installed
+* EPEL enabled on server (preferably with epel-release RPM)
+* The knowledge to do the above without my help
 
 ## Installing a Puppetmaster
 
-  * Install puppet and other packages:  
-    `yum install --enablerepo=epel-testing httpd mod_ssl puppet-server mod_passenger` 
-  * Populate /etc/httpd/conf.d/puppetmaster.conf with the following block. There is a sample 'apache2.conf' file that comes with the puppet package, but its never worked for me: <pre class="lang:default decode:true " ># you probably want to tune these settings
+* Install puppet and other packages:
+```
+yum install --enablerepo=epel-testing httpd mod_ssl puppet-server mod_passenger
+```
+* Populate /etc/httpd/conf.d/puppetmaster.conf with the following block. There is a sample 'apache2.conf' file that comes with the puppet package, but its never worked for me:
+```bash
+# you probably want to tune these settings
 PassengerHighPerformance on
 PassengerMaxPoolSize 12
 PassengerPoolIdleTime 1500
@@ -30,7 +35,7 @@ RackAutoDetect Off
 RailsAutoDetect Off
 
 Listen 8140
-&lt;VirtualHost *:8140&gt;
+<VirtualHost *:8140>
     SSLEngine on
     SSLCipherSuite SSLv2:-LOW:-EXPORT:RC4+RSA
     SSLCertificateFile /var/lib/puppet/ssl/certs/puppet.pem
@@ -47,49 +52,70 @@ Listen 8140
     RequestHeader set X-Client-Verify %{SSL_CLIENT_VERIFY}e
     RackAutoDetect On
     DocumentRoot /usr/share/puppet/rack/puppetmasterd/public/
-    &lt;Directory /usr/share/puppet/rack/puppetmasterd/&gt;
+    <Directory /usr/share/puppet/rack/puppetmasterd/>
         Options None
         AllowOverride None
         Order allow,deny
         allow from all
-    &lt;/Directory&gt;
-    &lt;Directory /etc/puppet/modules/&gt;
+    </Directory>
+    <Directory /etc/puppet/modules/>
         Options None
         AllowOverride None
         Order allow,deny
         allow from all
-    &lt;/Directory&gt;
+    </Directory>
     LogLevel warn
     ErrorLog /var/log/httpd/puppetmaster_error_log
     CustomLog /var/log/httpd/puppetmaster_access_log combined
-&lt;/VirtualHost&gt;</pre>
+</VirtualHost>
+```
 
-  * Optional 
-      * Set ServerName value in the VirtualHost block
-      * Change the ssl cert file names from 'puppet.pem' to match your local environment
-      * Set the correct puppet paths for ssl certificates in your environment
-  * Create rack directory structure  
-    `mkdir -p /usr/share/puppet/rack/puppetmasterd/{public,tmp}`
-  * Copy config.ru fromthe puppet source dir  
-    `cp /usr/share/puppet/ext/rack/files/config.ru /usr/share/puppet/rack/puppetmasterd/`
-  * Set permissions on the previous items  
-    `chown -R puppet: /usr/share/puppet/rack/puppetmasterd/`
-  * Configure /etc/puppet/puppet.conf to include the following, taking into consideration your local environment: <pre class="lang:default decode:true " >[master]
+* Optional
+  * Set ServerName value in the VirtualHost block
+  * Change the ssl cert file names from 'puppet.pem' to match your local environment
+  * Set the correct puppet paths for ssl certificates in your environment
+* Create rack directory structure
+```bash
+mkdir -p /usr/share/puppet/rack/puppetmasterd/{public,tmp}
+```
+* Copy config.ru fromthe puppet source dir
+```bash
+cp /usr/share/puppet/ext/rack/files/config.ru /usr/share/puppet/rack/puppetmasterd/
+```
+* Set permissions on the previous items
+```bash
+chown -R puppet: /usr/share/puppet/rack/puppetmasterd/
+```
+* Configure /etc/puppet/puppet.conf to include the following, taking into consideration your local environment:
+```config
+[master]
 certname=puppet
 ssl_client_header=SSL_CLIENT_S_DN
 ssl_client_verify_header=SSL_CLIENT_VERIFY
-</pre>
+```
 
-  * Configuring SSL the lazy way :) 
-      * Run puppetmasterd to build ssldirectory structure and keys  
-        `/usr/sbin/puppetmasterd`
-      * Stop puppetmasterd  
-        `killall -9 puppetmasterd`
-  * Add firewall rules before the reject and commit rules in your firewall definition:  
-    `-A INPUT -m state --state NEW -m tcp -p tcp --dport 8140 -j ACCEPT` 
-  * Restart firewall  
-    `/etc/init.d/iptables restart` 
-  * Restart apache  
-    `/etc/init.d/httpd restart`
-  * Verifying that the system is working by browsing to admin page: https://puppetmaster:8140, and if its working you should see:  
-    `The environment must be purely alphanumeric, not ''`
+* Configuring SSL the lazy way :)
+  * Run puppetmasterd to build ssldirectory structure and keys
+```bash
+/usr/sbin/puppetmasterd
+```
+  * Stop puppetmasterd
+```bash
+killall -9 puppetmasterd
+```
+* Add firewall rules before the reject and commit rules in your firewall definition:
+```bash
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 8140 -j ACCEPT
+```
+* Restart firewall
+```bash
+/etc/init.d/iptables restart
+```
+* Restart apache
+```bash
+/etc/init.d/httpd restart
+```
+* Verifying that the system is working by browsing to admin page: https://puppetmaster:8140, and if its working you should see:
+```
+The environment must be purely alphanumeric, not ''
+```

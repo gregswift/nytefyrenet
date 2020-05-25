@@ -13,13 +13,13 @@ Recently had the pleasure(?) of having to resetup an apt repository. It had been
 
 Using the following references:
 
-  * [dpkg-scanpackages](http://wiki.debian.org/HowToSetupADebianRepository#dpkg-scanpackages_and_dpkg-scansources "Debian wiki dpkg-scanpackages") (which points to)
-  * [Debian Repository How-To](http://www.debian.org/doc/manuals/repository-howto/repository-howto.en.html "Debian Repository How To") which says obsolete.. but IMO it works and is simpler than the other options
-  * [apt-ftparchive](wiki.debian.org/HowToSetupADebianRepository#apt-ftparchive "Debian wiki apt-ftparchive") which points to
-  * [Automatic Debian Package Repository HOWTO](http://people.connexer.com/~roberto/howtos/debrepository "Automatic Debian Package Repository HOWTO") which is also _obsolete_ and recommends reprepro, which I already said doesn't meet the requirements.
-  * [Securing Apt](http://wiki.debian.org/SecureApt "Securing Apt")
-  * [How to use GnuPG in an automated environment](http://www.gnupg.org/faq/GnuPG-FAQ.html#how-can-i-use-gnupg-in-an-automated-environment "How to use GnuPG in an automated environment")
-  * [Initializing tasks based on filesystem events](http://www.howtoforge.com/triggering-commands-on-file-or-directory-changes-with-incron "Incron")
+* [dpkg-scanpackages](http://wiki.debian.org/HowToSetupADebianRepository#dpkg-scanpackages_and_dpkg-scansources "Debian wiki dpkg-scanpackages") (which points to)
+* [Debian Repository How-To](http://www.debian.org/doc/manuals/repository-howto/repository-howto.en.html "Debian Repository How To") which says obsolete.. but IMO it works and is simpler than the other options
+* [apt-ftparchive](wiki.debian.org/HowToSetupADebianRepository#apt-ftparchive "Debian wiki apt-ftparchive") which points to
+* [Automatic Debian Package Repository HOWTO](http://people.connexer.com/~roberto/howtos/debrepository "Automatic Debian Package Repository HOWTO") which is also _obsolete_ and recommends reprepro, which I already said doesn't meet the requirements.
+* [Securing Apt](http://wiki.debian.org/SecureApt "Securing Apt")
+* [How to use GnuPG in an automated environment](http://www.gnupg.org/faq/GnuPG-FAQ.html#how-can-i-use-gnupg-in-an-automated-environment "How to use GnuPG in an automated environment")
+* [Initializing tasks based on filesystem events](http://www.howtoforge.com/triggering-commands-on-file-or-directory-changes-with-incron "Incron")
 
 We already had a GPG key, so I didn't have to create a key, i just followed the instructions in [How to use GnuPG in an automated environment](http://www.gnupg.org/faq/GnuPG-FAQ.html#how-can-i-use-gnupg-in-an-automated-environment "How to use GnuPG in an automated environment") to generate a passwordless signing subkey using the existing gpg key. If you don't have a key already there are lots of resources available if you just search around a bit. Here is [one](http://www.gnupg.org/gph/en/manual.html#AEN26 "GPG Manual - Generating a keypair").
 
@@ -69,7 +69,13 @@ This script assumes that the packages are being uploaded to the _RELEASES_ direc
 
 I create both Packages and Packages.gz because i didn't like seeing the Ign message when I did an apt-get update. You could consolidate it down to the one line and have just a single file.
 
-Now for the fun part. With Incron you can configure the execution of a command/script based on filesystem events. Since packages are being pushed into /home/bob/RELEASES we want to monitor that directory. We have a large number of file event types we could trigger from, as can be seen under [inotify events of this man page.](http://linux.die.net/man/7/inotify "inotify man page") For our purposes **IN_CREATE** was what I used. I need to verify as **IN\_CLOSE\_WRITE** might be better for larger files. To configure this I run <span class="lang:bash decode:true  crayon-inline " >incrontab -e</span> and added the following entry:
+Now for the fun part. With Incron you can configure the execution of a command/script based on filesystem events. Since packages are being pushed into /home/bob/RELEASES we want to monitor that directory. We have a large number of file event types we could trigger from, as can be seen under [inotify events of this man page.](http://linux.die.net/man/7/inotify "inotify man page") For our purposes **IN_CREATE** was what I used. I need to verify as **IN\_CLOSE\_WRITE** might be better for larger files. To configure this I run:
+
+```bash
+incrontab -e
+```
+
+Then added the following entry:
 
 ```bash
 /home/bob/RELEASES IN_CREATE /usr/local/bin/buildrepo.sh

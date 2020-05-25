@@ -8,21 +8,21 @@ tags = [
 +++
 > Quick warning. I'm writing this as more of a post-mortum. I didn't get all the errors recorded, and I realize that will make this hard for some people to find. I am also simplifyingthe process a bit more than what I actually went through, so some of it might not be perfect. I'll try to make that better, but don't hold your breath on me re-creating all the things that failed just to update this.
 
-Odds are that if you've randomly stumbled upon this post you are suffering.  Its that pain that can only be understood by someone who questions why something that has worked for decades suddenly breaks. 
+Odds are that if you've randomly stumbled upon this post you are suffering.  Its that pain that can only be understood by someone who questions why something that has worked for decades suddenly breaks.
 
 Now lets be clear on something, I'm not against the Fedora.next concept.  I think there is a lot of merit to the concept, and more power to those implementing it for having the drive and vision to do so.  However, it is not fun spending several nights on a low and capped bandwidth network trying to figure out why something I've been doing for years doesn't work.
 
 So lets step back a few weeks.  My wife is opening an optometry practice, which is exciting and stressful.  It is also not cheap. Bearing in mind that I have over 15 years of sysadmin/network/security/blah/blah/blah experience I'm trying to save her a bit of money by handling her IT.  As part of that I'm bringing a few basic concepts to the environment.
 
-  * Disposal and Repeatability - I want to be able to rebuild any of the desktops or the server at the drop of a hat.  There are several tools that facilitate this like The Foreman and Cobbler.  I settled on the latter.  I'll talk about that elsewhere.
-  * Linux - I know that the medical industrial complex is not necessarily Linux friendly, but I bet I can do at least the desktops this way.  This is going to have some fun problems.
-  * Security - Small offices are notorious for their lack of security.  Going to conver user management, shared secrets, and good password policies.
+* Disposal and Repeatability - I want to be able to rebuild any of the desktops or the server at the drop of a hat.  There are several tools that facilitate this like The Foreman and Cobbler.  I settled on the latter.  I'll talk about that elsewhere.
+* Linux - I know that the medical industrial complex is not necessarily Linux friendly, but I bet I can do at least the desktops this way.  This is going to have some fun problems.
+* Security - Small offices are notorious for their lack of security.  Going to conver user management, shared secrets, and good password policies.
 
 But you want to know how to kickstart Fedora 21.  Lets move that direction...
 
 One of the first things I established was a Cobbler instance and downloaded the Fedora 21 Workstation media. Let's import it.
 
-```
+```bash
 # mount -o loop Fedora-Live-Workstation-x86_64-21-5.iso /mnt
 mount: /dev/loop0 is write-protected, mounting read-only
 # cobbler import --path=/mnt --name=f21 --kickstart=/var/lib/cobbler/kickstarts/default.ks
@@ -36,7 +36,7 @@ If you dig into this a bit you will find that the Live Workstation doesn't have 
 
 > Quick aside. What really happened in my late nights of making this happen was that I found the above information, but confused the Everything repository with the Server Everything iso. So I started with just the Everything ISO, which isn't an actual bootable iso with a installer. This led to weeping and gnashing of teeth. After a while of poking and prodding at this and reading poor documentation I realized there was a base Everything repository too. Then, because of my bandwidth limitations, I had to go sync the repository elsewhere, and manually import it into the environment.
 
-```
+```bash
 # mount -o loop Fedora-Server-DVD-x86_64-21/Fedora-Server-DVD-x86_64-21.iso /mnt
 mount: /dev/loop0 is write-protected, mounting read-only
 # cobbler import --path=/mnt --name=f21 --kickstart=/var/lib/cobbler/kickstarts/default.ks
@@ -74,7 +74,7 @@ running: /usr/bin/reposync -n -n -d -m --config=/var/www/cobbler/repo_mirror/f21
 
 Awesomeness. That's done. I then added this repo to my f21 profile, and tried to kickstart. Using the simple default kickstart from cobbler, the kicking succeeded. However I only had a server instance due to not defining custom package sets.
 
-I have a Fedora 21 workstation so I looked at the available groups and started with the simple "@^Fedora Workstation". Restarted the process, and fail. No such group. Turns out cobbler's reposync doesn't grab comps.xml with its default settings. Go edit /etc/cobbler/settings and add '-m' to the reposync_flags setting. Then re-run the cobbler sync. 
+I have a Fedora 21 workstation so I looked at the available groups and started with the simple "@^Fedora Workstation". Restarted the process, and fail. No such group. Turns out cobbler's reposync doesn't grab comps.xml with its default settings. Go edit /etc/cobbler/settings and add '-m' to the reposync_flags setting. Then re-run the cobbler sync.
 
 > I haven't tested it with the re-run. Due to my constant back and forth I ended up doing a full re-sync at one point after adding the -m.
 

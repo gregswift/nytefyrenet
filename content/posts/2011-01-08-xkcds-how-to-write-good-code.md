@@ -6,4 +6,6 @@ tags = [
   'development',
 ]
 +++
-[<img class="aligncenter" title="You can either hang out in the Android Loop or the HURD loop." src="http://imgs.xkcd.com/comics/good_code.png" alt="You can either hang out in the Android Loop or the HURD loop." width="455" height="695" />](http://xkcd.com/844/)
+
+![You can either hang out in the Android Loop or the HURD loop.](http://imgs.xkcd.com/comics/good_code.png "You can either hang out in the Android Loop or the HURD loop.")
+[source](http://xkcd.com/844/)

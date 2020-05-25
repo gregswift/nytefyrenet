@@ -44,7 +44,7 @@ done
 
 So given a set of files named IMG\_2204.JPG, IMG\_2840.JPG, IMG_3204.JPG as a source into this we pull the following date:modify results (in order):
 
-```
+```bash
 date:modify: 2011-03-30T20:22:46-05:00
 date:modify: 2011-06-18T08:49:22-05:00
 date:modify: 2011-07-02T09:28:39-05:00
@@ -52,7 +52,7 @@ date:modify: 2011-07-02T09:28:39-05:00
 
 And the final output from the script is:
 
-```
+```bash
 mv IMG_2204.JPG 20110330_202246.jpg
 mv IMG_2804.JPG 20110618_084922.jpg
 mv IMG_3204.JPG 20110702_092839.jpg

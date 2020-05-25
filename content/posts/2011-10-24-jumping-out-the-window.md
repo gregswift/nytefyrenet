@@ -27,41 +27,39 @@ So what is the point of this?  I was forwarded a link to a rant on ZDnet this l
 
 I am not going to delve to deep into his background since it is readily available on his site, but based on his _advertised_ background this guy should be beyond my skill set in understanding the how computers work. Sadly, understanding and development skills does not a skilled administrator make. Here is how he describes himself in the afore mentioned article:
 
-"... I’m no tech babe in the woods. I’ve been a UNIX product manager, I’ve written kernel code, and I’ve taught programming at the college level. "
+> "... I’m no tech babe in the woods. I’ve been a UNIX product manager, I’ve written kernel code, and I’ve taught programming at the college level. "
 
 So, my quick synopsis on me.  I am a fairly competent sysadmin with a background of being in the trenches.  I took a C class in high school that used _C/C++ for Dummies_ as the course material, and is practically the last time I touched it. I did list my scripting experience above.  I have never touched kernel code.  I never went to college.
 
 Now that context has been set, here are quotes from his article followed by my responses.  I am trying to consider that his rant was written while he was angry and (hopefully) just being melodramatic, but it is difficult.
 
- _"I’ve had it with all the patched together pieces and parts that all have to be just the right versions, with just the right dependencies, compiled in just the right way, during just the right phase of the moon, with just the right number of people tilting left at just the right time. "_
+> "I’ve had it with all the patched together pieces and parts that all have to be just the right versions, with just the right dependencies, compiled in just the right way, during just the right phase of the moon, with just the right number of people tilting left at just the right time. "
 
 And what exactly are you doing? Unless you are grabbing several repositories from random places and enabling them all at the same time, or installing everything from scratch this should not be an issue these days.  3-5 years ago? Maybe. 5-10 years ago? okay ya... probably.
 
- _"I’ve had it with all the different package managers. With some code distributed with one package manager and other code distributed with other package managers. With modules that can be downloaded on Ubuntu just by typing the sequence in the anemic how-to, but won’t work at all on CentOS or Fedora, because the repositories weren’t specified in just, exactly, EXACTLY, the right frickin’ order on the third Wednesday of the month. "_
+> "I’ve had it with all the different package managers. With some code distributed with one package manager and other code distributed with other package managers. With modules that can be downloaded on Ubuntu just by typing the sequence in the anemic how-to, but won’t work at all on CentOS or Fedora, because the repositories weren’t specified in just, exactly, EXACTLY, the right frickin’ order on the third Wednesday of the month. "
 
 Okay... so apt (Debian and Ubuntu) and yum (CentOS, Fedora, RHEL) are not the same software.  So their commands are a touch different.  They are also used in different distributions, so there might be different package names. I can see where that can be annoying, it has annoyed me at times.  But this is complaining that your Windows box and OS X box do not use the same exact programs and syntax. There is software that exists on both of those platforms that require different installation and execution procedures.
 
-_"With builds and distros that won’t even launch into a UI until you’ve established a solid SSH connection, "_
+> "With builds and distros that won’t even launch into a UI until you’ve established a solid SSH connection, "
 
 Umm... so I personally prefer my remote access to my servers over an encrypted channel, and SSH is a great medium for that.  You are a security advocate, right? This is a server environment, right?  You need a GUI, why?  I am not against GUIs, they have their place.  However, most server components in Linux do not have a native GUI tool.  It is usually just configuration files, and sometimes a web interface.  Furthermore, if this is the administrative interface of a backup program, why would you run it on lots of machines?  There should be a central administrative interface, and RDP to Windows is a nice feature for that purpose.  Even if it is on a Linux server, if this is a centralized interface, what is wrong with just exporting the GUI over X via your SSH session? Its secure and easy.  It requires almost no setup (install a few programs on your Windows desktop, establish the connection, run the program).  VNC is rather insecure usually...
 
-_"I’ve had it with the fact that this stuff doesn’t work reliably."_
+> "I’ve had it with the fact that this stuff doesn’t work reliably."
 
 Ahh reliability... such a subjectively quantifiable term.  I like how you do not explain how it is not reliable, you just barges right on to knowledge and understanding.  In fact the closest you come to saying anything about a lack of reliability is the update issue resulting in a crash, but this statement is completely separate from those statements in your rant.
 
-_"Oh, sure, if you work with Linux every hour of every day, if this is all you do, and all you love, if you’ve never had a date since you grew that one facial hair, if you’ve never had any other responsibility in your entire life, then you know every bit of every undocumented piece of folklore. You know which forums and which forum posters have the very long and bizarre command line that only. That. One. Guy. Knows. "_
+> "Oh, sure, if you work with Linux every hour of every day, if this is all you do, and all you love, if you’ve never had a date since you grew that one facial hair, if you’ve never had any other responsibility in your entire life, then you know every bit of every undocumented piece of folklore. You know which forums and which forum posters have the very long and bizarre command line that only. That. One. Guy. Knows. "
+> "and THAT command line sequence can be gotten by getting on just the right IRC channel, at just the right time of night, and talking just the right way, to that one incredibly self-absorbed luser who happens to know that you need to put the undocumented"
 
- _"and THAT command line sequence can be gotten by getting on just the right IRC channel, at just the right time of night, and talking just the right way, to that one incredibly self-absorbed luser who happens to know that you need to put the undocumented"_
+Okay.. so it is my day job and thus I do spend a significant part of every day doing the work, I will give you that.  But I have had plenty of dates (and am now happily married with a child on the way), lots of other responsibilities, and do not know lots of undocumented folklore (documented, sure).  I do not frequent forums except as the result of searches, and I do almost all of my help searches strictly at google.com.  There are times when I need more help than a search provides, and I use things like the mailing lists or IRC channels for that software.  I do not always get the help I need, but I usually get it figured out.  That being said... I rarely have those types of scenarios even with the bleeding edge things I play with all the time.
 
-Okay.. so it is my day job and thus I do spend a significant part of every day doing the work, I will give you that.  But I have had plenty of dates (and am now happily married with a child on the way), lots of other responsibilities, and do not know lots of undocumented folklore (documented, sure).  I do not frequent forums except as the result of searches, and I do almost all of my help searches strictly at <a href="http://google.com/" target="_blank">google.com</a>.  There are times when I need more help than a search provides, and I use things like the mailing lists or IRC channels for that software.  I do not always get the help I need, but I usually get it figured out.  That being said... I rarely have those types of scenarios even with the bleeding edge things I play with all the time.
-
- _"Can you imagine my rank naivety here? I actually said Okay to a Linux update. I know I should have known better. ... But I didn’t. I figured that after all these years, Linux was finally robust enough to not rip me a new one because I just wanted to run a server and keep it up to date. Silly me! Silly, silly me!"_
+> "Can you imagine my rank naivety here? I actually said Okay to a Linux update. I know I should have known better. ... But I didn’t. I figured that after all these years, Linux was finally robust enough to not rip me a new one because I just wanted to run a server and keep it up to date. Silly me! Silly, silly me!"
 
 So unless you are pulling in packages from all kinds of non-reliable repositories or letting manually installed software override package installed software this should not be an issue.  I would love to know what the root of this update issue was, because user error is the number one cause of package management updates on any systems in my organization.
 
- _"Sure, Linux machines can make great servers. But they require a dedicated group of Linux groupies who know all the folklore, all the secret handshakes, and where all the bodies are buried. "_
-
- _"That’s how you survive with a Linux distro apparently. Once it’s installed and works, never, ever update it."_
+> "Sure, Linux machines can make great servers. But they require a dedicated group of Linux groupies who know all the folklore, all the secret handshakes, and where all the bodies are buried. "
+> "That’s how you survive with a Linux distro apparently. Once it’s installed and works, never, ever update it."
 
 I install machines, turn on updating, and walk away.  They run.  I really do not know why you are having such an issue and would actually love to know the truth behind your problems. It boggles my mind to the point where I felt the need to write this blog entry.
 
@@ -73,7 +71,7 @@ Take into consideration that I have a fairly general philosophy about running so
 
 With those 3 things in mind I usually have no issue with my systems.
 
-_**"Oh, and one last point. Don’t go telling me I don’t know what I’m doing, because that proves my case against Linux. I know quite well what I’m doing, but not to the level that is apparently required to keep a simple LAMP machine running.** " (emphasis his)_
+> **"Oh, and one last point. Don’t go telling me I don’t know what I’m doing, because that proves my case against Linux. I know quite well what I’m doing, but not to the level that is apparently required to keep a simple LAMP machine running.** " (emphasis his)
 
 What I love about this quote is that he attempts to deflect any possibility that he is at fault by saying the requirement of someone to have entry level junior system administrator skills is to much to ask for from someone that wants to be a system administrator.
 

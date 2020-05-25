@@ -12,9 +12,9 @@ I've been a Red Hat customer for over a decade now.  One of the things that has
 
 But in the nature of our community and open source my protest is not just a bunch of whining (although one could consider the explanation of the background for my protest whining, but take it as you will), but an actually attempt to "fix" the issue.
 
-Step 1: I wrote and published a utility (<a rel="external" href="http://rhcpdl.googlecode.com/" target="_blank">rhcpdl</a>) that effectively restores this functionality  
+Step 1: I wrote and published a utility ([rhcpdl](http://rhcpdl.googlecode.com/)) that effectively restores this functionality  
 Step 2: Attempt to get people to use/back that project so that maybe RH will realize they need to fix the issue
 
-You can get more information from the project page at <a rel="external" href="http://rhcpdl.googlecode.com/" target="_blank">http://rhcpdl.googlecode.com</a>. There is also RPMs for RHEL5 and 6, and a SRPM available for download.
+You can get more information from the project page at <http://rhcpdl.googlecode.com>. There is also RPMs for RHEL5 and 6, and a SRPM available for download.
 
 Remember, the goal of this project is obsolescence :)

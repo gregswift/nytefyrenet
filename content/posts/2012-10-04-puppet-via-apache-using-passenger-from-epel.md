@@ -20,10 +20,13 @@ The goal of this set of steps is to enable the serving of Puppet through Apache 
 ## Installing a Puppetmaster
 
 * Install puppet and other packages:
-```
+
+```bash
 yum install --enablerepo=epel-testing httpd mod_ssl puppet-server mod_passenger
 ```
+
 * Populate /etc/httpd/conf.d/puppetmaster.conf with the following block. There is a sample 'apache2.conf' file that comes with the puppet package, but its never worked for me:
+
 ```bash
 # you probably want to tune these settings
 PassengerHighPerformance on
@@ -71,22 +74,29 @@ Listen 8140
 ```
 
 * Optional
-  * Set ServerName value in the VirtualHost block
-  * Change the ssl cert file names from 'puppet.pem' to match your local environment
-  * Set the correct puppet paths for ssl certificates in your environment
+* Set ServerName value in the VirtualHost block
+* Change the ssl cert file names from 'puppet.pem' to match your local environment
+* Set the correct puppet paths for ssl certificates in your environment
 * Create rack directory structure
+
 ```bash
 mkdir -p /usr/share/puppet/rack/puppetmasterd/{public,tmp}
 ```
+
 * Copy config.ru fromthe puppet source dir
+
 ```bash
 cp /usr/share/puppet/ext/rack/files/config.ru /usr/share/puppet/rack/puppetmasterd/
 ```
+
 * Set permissions on the previous items
+
 ```bash
 chown -R puppet: /usr/share/puppet/rack/puppetmasterd/
 ```
+
 * Configure /etc/puppet/puppet.conf to include the following, taking into consideration your local environment:
+
 ```config
 [master]
 certname=puppet
@@ -95,27 +105,38 @@ ssl_client_verify_header=SSL_CLIENT_VERIFY
 ```
 
 * Configuring SSL the lazy way :)
-  * Run puppetmasterd to build ssldirectory structure and keys
+* Run puppetmasterd to build ssldirectory structure and keys
+
 ```bash
 /usr/sbin/puppetmasterd
 ```
-  * Stop puppetmasterd
+
+* Stop puppetmasterd
+
 ```bash
 killall -9 puppetmasterd
 ```
+
 * Add firewall rules before the reject and commit rules in your firewall definition:
+
 ```bash
 -A INPUT -m state --state NEW -m tcp -p tcp --dport 8140 -j ACCEPT
 ```
+
 * Restart firewall
+
 ```bash
 /etc/init.d/iptables restart
 ```
+
 * Restart apache
+
 ```bash
 /etc/init.d/httpd restart
 ```
-* Verifying that the system is working by browsing to admin page: https://puppetmaster:8140, and if its working you should see:
-```
+
+* Verifying that the system is working by browsing to admin page: <https://puppetmaster:8140>, and if its working you should see:
+
+```bash
 The environment must be purely alphanumeric, not ''
 ```

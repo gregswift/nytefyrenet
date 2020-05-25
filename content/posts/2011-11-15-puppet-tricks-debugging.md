@@ -72,7 +72,8 @@ end
 
 Now, this may seem like a kinda odd way to go about setting the _debug_ value, but while the code in the custom fact is working with the boolean value of **true**/**false**, when called as a fact it returns the string "true" or "false".  Since the string "false" is **true** from a boolean sense you could end up getting flooded with logs if you do a simply **true**/**false** check against the _lookup()_ result.  Thus, we default to **false** as that should be our normal working mode, and if the fact returns the string "true", we set _debug_ to **true**.  Now there is a custom fact providing _debug_, and a custom function utilizing it to log messages on the puppet server. Yay!  But wait, there is more!  Now that you have the custom fact defined, you can utilize it inside your puppet manifests in the same way!  Let take a look:
 
-<pre class="lang:bash >class resolver {
+```ruby
+class resolver {
   $nameservers = $gateway ? {
     /^192.168.1./ = ['192.168.1.25', '192.168.2.25'],
     /^192.168.2./ = ['192.168.2.25', '192.168.1.25'],
@@ -85,11 +86,12 @@ Now, this may seem like a kinda odd way to go about setting the _debug_ value, b
     print { ${nameservers}: }
   }
 }
-
 ```
 
-Wait, what? Sorry.. threw a few curve balls at you. <span style="color: #00ccff;">The <em>notify</em> call, which is not a local function, logs on the client side.</span> <span style="color: #ff6600;">Then I wrapped it in a <em>define</em> called <em>print</em>, <span style="color: #000000;">because I was going to <span style="color: #993366;">pass an array</span> to it.</span></span> By wrapping it in the _define_ it takes the <span style="color: #800080;">array</span> and performs the <span style="color: #00ccff;"><em>notify</em> call</span> on each object in the <span style="color: #993366;">array</span>. You can read more about this on [this page](http://www.devco.net/archives/2009/08/19/tips_and_tricks_for_puppet_debugging.php "Tips and Tricks for Puppet debugging"), under the sections _What is the value of a variable?_ and _Whats in an array?_.  The article has some nice explanations of a few other things as well.
+Wait, what? Sorry.. threw a few curve balls at you. The *notify* call, which is not a local function, logs on the client side. Then I wrapped it in a *define* called *print*, because I was going to pass an array to it. By wrapping it in the _define_ it takes the array and performs the *notify* call on each object in the array. You can read more about this on [this page](http://www.devco.net/archives/2009/08/19/tips_and_tricks_for_puppet_debugging.php "Tips and Tricks for Puppet debugging"), under the sections _What is the value of a variable?_ and _Whats in an array?_.  The article has some nice explanations of a few other things as well.
 
 Also, if you'd rather check for _$::debug_ than _$::puppet_debug_ then add the following to your _site.pp_:
 
-<span class="lang:ruby decode:true crayon-inline " >$::debug = $::puppet_debug</span>
+```ruby
+$::debug = $::puppet_debug
+```

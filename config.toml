@@ -18,6 +18,7 @@ generate_rss = true
 
 [extra]
 # Put all your custom variables here
+date_format = "%F"
 
 sam_menu = [
     { text = "posts", link = "/posts" },
@@ -26,6 +27,3 @@ sam_menu = [
 ]
 
 sam_bottom_menu = true
-
-[extra.sam_footer]
-text = "Some footer text."

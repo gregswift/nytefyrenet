@@ -1,6 +1,7 @@
 +++
 title = "Some RPM packaging thoughts and resources"
 date = 2014-02-26T12:26:26-05:00
+[taxonomies]
 tags = [
   "development",
   "linux",

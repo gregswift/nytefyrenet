@@ -1,6 +1,7 @@
 +++
 title = "git reference guide - part two"
 date = 2011-09-11T19:20:57-05:00
+[taxonomies]
 tags = [
   "development",
   "git",

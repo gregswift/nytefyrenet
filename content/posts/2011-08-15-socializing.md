@@ -1,6 +1,7 @@
 +++
 title = "socializing"
 date = 2011-08-15T18:11:54-05:00
+[taxonomies]
 tags = [
   "general",
 ]

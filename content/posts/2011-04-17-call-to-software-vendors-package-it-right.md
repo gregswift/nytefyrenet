@@ -1,6 +1,7 @@
 +++
 title = "call to software vendors... package it right"
 date = 2011-04-17T16:11:24-05:00
+[taxonomies]
 tags = [
   "development",
   "linux",

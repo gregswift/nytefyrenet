@@ -1,6 +1,7 @@
 +++
 title = "puppet tricks: debugging"
 date = 2011-11-15T21:29:57-05:00
+[taxonomies]
 tags = [
   "development",
   "linux",

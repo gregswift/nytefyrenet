@@ -1,6 +1,7 @@
 +++
 title = "jumping out the window"
 date = 2011-10-24T11:08:33-05:00
+[taxonomies]
 tags = [
   "linux",
 ]

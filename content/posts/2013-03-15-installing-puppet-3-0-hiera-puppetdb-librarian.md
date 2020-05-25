@@ -1,6 +1,7 @@
 +++
 title = "installing puppet 3.0 + hiera + puppetdb + librarian"
 date = 2013-03-15T10:29:14-05:00
+[taxonomies]
 tags = [
   "general",
 ]

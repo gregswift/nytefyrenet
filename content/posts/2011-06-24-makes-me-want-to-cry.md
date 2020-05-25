@@ -1,7 +1,7 @@
 +++
-title = 'makes me want to cry...'
+title = "makes me want to cry..."
 date = 2011-06-24T02:57:41-05:00
-tags:
+tags: [
   "meego",
   "nokia",
 ]

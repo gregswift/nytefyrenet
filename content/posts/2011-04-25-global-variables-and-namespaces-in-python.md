@@ -1,5 +1,5 @@
 +++
-title = Global Variables and Namespaces in python
+title = "Global Variables and Namespaces in python"
 date = 2011-04-25T09:45:13-05:00
 tags = [
   'development',

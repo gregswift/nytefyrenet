@@ -1,5 +1,5 @@
 +++
-title = 'Introducing 'rhcpdl' project'
+title = "Introducing 'rhcpdl' project"
 date = 2011-05-17T19:10:06-05:00
 tags = [
   'development',

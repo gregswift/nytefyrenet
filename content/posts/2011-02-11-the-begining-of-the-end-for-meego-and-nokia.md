@@ -1,7 +1,7 @@
 +++
-title = the begining of the end for meego and nokia?
+title = "the begining of the end for meego and nokia?"
 date = 2011-02-11T07:55:54-05:00
-tags:
+tags = [
   "meego",
   "nokia",
 ]

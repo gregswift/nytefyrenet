@@ -1,7 +1,7 @@
 +++
-title = puppet via apache using passenger from epel
+title = "puppet via apache using passenger from epel"
 date = 2012-10-04T09:51:36-05:00
-tags:
+tags: [
   "linux",
   "puppet",
 ]

@@ -1,7 +1,7 @@
 +++
-title = Editing image metadata with exiv2
+title = "Editing image metadata with exiv2"
 date = 2011-11-04T22:27:17-05:00
-tags:
+tags: [
   "images",
   "linux",
 ]

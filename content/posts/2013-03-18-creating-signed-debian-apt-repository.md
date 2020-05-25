@@ -1,7 +1,7 @@
 +++
-title = Creating signed debian apt repository
+title = "Creating signed debian apt repository"
 date = 2013-03-18T22:25:18-05:00
-tags:
+tags: [
   "general",
   "linux",
 ]

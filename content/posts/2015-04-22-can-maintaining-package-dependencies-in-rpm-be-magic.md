@@ -8,6 +8,7 @@ tags = [
   "rpms",
 ]
 +++
+
 One of the biggest complaints I hear about packaging software is packaging up all the dependencies, and then being responsible for keeping them current. Obviously, this is not the only complaint.. but i'm not talking about the others at the moment.
 
 A long time ago i had the idea for a website where you could aggregate status updates for software projects you care about, thus allowing you to go get all your updates without having to subscribe to billions of lists. I had this idea back when still installing things manually, because the package ecosystem was nowhere near as complete as it is today (in debian or fedora). Sometime after that i registered myswuf.com (my software update feed) with the intention of one day writing such a tool.

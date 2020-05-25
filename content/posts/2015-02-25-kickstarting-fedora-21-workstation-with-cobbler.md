@@ -6,6 +6,7 @@ tags = [
   "general",
 ]
 +++
+
 > Quick warning. I'm writing this as more of a post-mortum. I didn't get all the errors recorded, and I realize that will make this hard for some people to find. I am also simplifyingthe process a bit more than what I actually went through, so some of it might not be perfect. I'll try to make that better, but don't hold your breath on me re-creating all the things that failed just to update this.
 
 Odds are that if you've randomly stumbled upon this post you are suffering.  Its that pain that can only be understood by someone who questions why something that has worked for decades suddenly breaks.
@@ -14,9 +15,9 @@ Now lets be clear on something, I'm not against the Fedora.next concept.  I thi
 
 So lets step back a few weeks.  My wife is opening an optometry practice, which is exciting and stressful.  It is also not cheap. Bearing in mind that I have over 15 years of sysadmin/network/security/blah/blah/blah experience I'm trying to save her a bit of money by handling her IT.  As part of that I'm bringing a few basic concepts to the environment.
 
-* Disposal and Repeatability - I want to be able to rebuild any of the desktops or the server at the drop of a hat.  There are several tools that facilitate this like The Foreman and Cobbler.  I settled on the latter.  I'll talk about that elsewhere.
-* Linux - I know that the medical industrial complex is not necessarily Linux friendly, but I bet I can do at least the desktops this way.  This is going to have some fun problems.
-* Security - Small offices are notorious for their lack of security.  Going to conver user management, shared secrets, and good password policies.
+- Disposal and Repeatability - I want to be able to rebuild any of the desktops or the server at the drop of a hat.  There are several tools that facilitate this like The Foreman and Cobbler.  I settled on the latter.  I'll talk about that elsewhere.
+- Linux - I know that the medical industrial complex is not necessarily Linux friendly, but I bet I can do at least the desktops this way.  This is going to have some fun problems.
+- Security - Small offices are notorious for their lack of security.  Going to conver user management, shared secrets, and good password policies.
 
 But you want to know how to kickstart Fedora 21.  Lets move that direction...
 

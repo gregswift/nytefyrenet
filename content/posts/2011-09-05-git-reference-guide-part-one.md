@@ -7,6 +7,7 @@ tags = [
   "git",
 ]
 +++
+
 I'm still getting used to utilizing git for my version control. The part I like most is the merge handling. So here is another reference post for me, hopefully it will help me remember bits of my git work flow. Mostly basics, and some I do not need to remind myself, but it does not hurt to document.
 
 ## Checkout repository - [git clone](http://www.kernel.org/pub/software/scm/git/docs/git-clone.html "git-clone man page")
@@ -59,11 +60,11 @@ git format-patch {origin, branch}
 
 Some useful options
 
-* -find-renames, -M _n_%
-* -output-directory, -o _dir_
-* -numbered, -n
-* -unnumbered, -N
-* -signoff, -s
+- -find-renames, -M _n_%
+- -output-directory, -o _dir_
+- -numbered, -n
+- -unnumbered, -N
+- -signoff, -s
 
 ## Directly send locally committed patch via e-mail - [git send-email](http://www.kernel.org/pub/software/scm/git/docs/git-send-email.html "git send-email man page")
 

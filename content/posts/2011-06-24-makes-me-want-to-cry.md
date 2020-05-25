@@ -7,4 +7,5 @@ tags = [
   "nokia",
 ]
 +++
+
 [because i do not classify as a developer](http://thenokiablog.com/2011/06/22/nokia-n950-hands-on/ "Hands on video of Nokia N950")

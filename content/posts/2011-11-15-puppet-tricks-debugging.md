@@ -8,6 +8,7 @@ tags = [
   "puppet",
 ]
 +++
+
 **Update:** (2012/9/30) I came up with this around the time I was using 0.25.  Apparently now you can do similar utilizing the -debug switch on the client along with debug() calls. I thought the function was only part of [PuppetLab](http://puppetlabs.com/ "PuppetLabs")'s [stdlib](http://forge.puppetlabs.com/puppetlabs/stdlib "Puppet Forge page for stdlib"), but apparently its in base, at least in 2.7+. I'll probably do a part 2 to this with more info, although there isn't much more.
 
 **Update:** (2012/12/20) So the debug() function from stdlib is lame. I spent a while troubleshooting my new environment not getting messages and realized that rolling back to notice() worked. Could have sworn I tested it when I posted that. I did also run into an issue that naming the fact _debug_ is actually a bad idea and so have updated this blog accordingly.
@@ -88,9 +89,9 @@ class resolver {
 }
 ```
 
-Wait, what? Sorry.. threw a few curve balls at you. The *notify* call, which is not a local function, logs on the client side. Then I wrapped it in a *define* called *print*, because I was going to pass an array to it. By wrapping it in the _define_ it takes the array and performs the *notify* call on each object in the array. You can read more about this on [this page](http://www.devco.net/archives/2009/08/19/tips_and_tricks_for_puppet_debugging.php "Tips and Tricks for Puppet debugging"), under the sections _What is the value of a variable?_ and _Whats in an array?_.  The article has some nice explanations of a few other things as well.
+Wait, what? Sorry.. threw a few curve balls at you. The _notify_ call, which is not a local function, logs on the client side. Then I wrapped it in a _define_ called *print*, because I was going to pass an array to it. By wrapping it in the _define_ it takes the array and performs the _notify_ call on each object in the array. You can read more about this on [this page](http://www.devco.net/archives/2009/08/19/tips_and_tricks_for_puppet_debugging.php "Tips and Tricks for Puppet debugging"), under the sections _What is the value of a variable?_ and _Whats in an array?_.  The article has some nice explanations of a few other things as well.
 
-Also, if you'd rather check for _$::debug_ than _$::puppet_debug_ then add the following to your _site.pp_:
+Also, if you'd rather check for _\$::debug_ than _\$::puppet_debug_ then add the following to your _site.pp_:
 
 ```ruby
 $::debug = $::puppet_debug

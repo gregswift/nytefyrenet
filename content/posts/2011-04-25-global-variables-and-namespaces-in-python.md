@@ -6,6 +6,7 @@ tags = [
   'development',
 ]
 +++
+
 Recently I had someone come ask me for a bit more information about working with global variables. For those new to python, this might be something helpful, so I figured I'd share.   Personally, for ease of reference, I specify my global variables names in ALLUPPERCASE. This helps distinguish them since I use that naming standard nowhere else in my code.
 
 In a python application you have multiple namespaces. Each namespace is intended to be completely isolated, so you can use the same name in multiple namespaces without conflict. The global namespace is the only one where this does not hold strictly true.  If the below is not enough, a good and more in depth explanation is available here: [A Guide to Python Namespaces](http://bytebaker.com/2008/07/30/python-namespaces/ "A Guide to Python Namespaces").

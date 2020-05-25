@@ -6,6 +6,7 @@ tags = [
   "general",
 ]
 +++
+
 Anyone that knows me knows that I never had a myspace or facebook account.  While I know that my adamant refusal to establish a presence on those sites seemed like it might be a bit of an elitist attitude, it was actually more of a "oh no, not again" reaction.
 
 I began my online life in 1992, and my primary use of the Internet was [Internet Relay Chat (IRC)](http://en.wikipedia.org/wiki/IRC "Wikipedia page for IRC").  IRC was, and still is, the ultimate online chat room.  There are hundreds of networks these days, and while I am sure there were more than just [undernet](http://www.undernet.org/ "Undernet Chat Network") and [EFnet](http://www.efnet.org/ "Eris Free Network"), those were two of the biggest when I started.  After getting me signed onto EFnet, my older sister told me, pick the name of something you are interested in and join a channel with that name preceded by a hash tag.  As a twelve year old, my priorities were simple.  No, I did not join #sex. I joined #genesis (yay Sega).  As I am sure you have guessed, it was not a video game channel, but it did act as the #genesis \*badump chi\* to my 5 year addiction to online chat. I met several interesting individuals in the room, and they invited me over to #dakewlchannel, and I have not spelled the word _cool_ correctly since.  I then spent the next several years hanging out in #vampcafe on undernet.  Vampires were kewl long before before Twilight.

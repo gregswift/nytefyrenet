@@ -7,4 +7,5 @@ tags = [
   "git",
 ]
 +++
+
 So far I have to say the best reference for work flows has been [github.com](http://github.com "GitHub").  Their [help section](http://help.github.com/ "GitHub Help Center") covers several level from Beginner to Advanced.  This will likely be the last post on this for now... these three pretty much cover it.

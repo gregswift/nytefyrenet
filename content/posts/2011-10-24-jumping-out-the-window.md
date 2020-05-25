@@ -6,6 +6,7 @@ tags = [
   "linux",
 ]
 +++
+
 So, its time to feed the troll.  I do try and avoid this usually, but I was [channeling some xkcd](http://xkcd.com/386/ "Duty Calls") when I wrote this.
 
 While my first exposure to computers was on a Commodore 64 then later with SystemV and Red Hat Linux (RHL), I started my professional career as a Windows desktop support lackey.  In that role I learned a bit more about Windows, and began maintaining  an Exchange 5.5 system and then later towards IIS and DNS management (backwards, I know).  Within a a few short years I was ecstatic to return to the world of Linux sans Windows.  One of the big things for me was that things I wanted to do were always a pain to accomplish, whether it was on Windows or Linux, but Linux allowed me to do it faster and easier.
@@ -16,10 +17,10 @@ I concede frustration in the early days of Fedora, because it was a rocky start,
 
 I am Red Hat certified and at work I am a Red Hat Enterprise Linux (RHEL) advocate.  One of the largest reasons is that I feel it is the best way for companies that have zero interest in participating in open source to actually contribute back (by paying Red Hat to do it).  I have been utilizing RHEL since it was released as version 2.1 back in 2002.  I keep my systems updated all the time.  However, I have been singed a few times by updates.  They can be counted on one hand:
 
-  1. Way back in the day the bind-chroot package would blow away your named.conf on an update.  But now that I think about that... it was not even RHEL.  It may have been RHL.
-  2. In RHEL5 there was a openssh update that introduced dynamic tcp window scaling.  We have a phantom network issue and thus started having stalled ssh data transfers.  Not really the update's fault.
-  3. In RHEL5 they changed the tzdata package from noarch to arch-specific and you could end up with a bad old tzdata package installed.  Did not actually break anything.
-  4. At one point kmod-nvidia blew up on a kernel update during the Fedora 13 time frame.  The kmod was from RPMFusion and of nvidia's proprietary binaries... kind of an issue waiting to happen in the first place.  I moved to the akmod (self-rebuilding kernel mod) package and haven't had an issue since.
+1. Way back in the day the bind-chroot package would blow away your named.conf on an update.  But now that I think about that... it was not even RHEL.  It may have been RHL.
+2. In RHEL5 there was a openssh update that introduced dynamic tcp window scaling.  We have a phantom network issue and thus started having stalled ssh data transfers.  Not really the update's fault.
+3. In RHEL5 they changed the tzdata package from noarch to arch-specific and you could end up with a bad old tzdata package installed.  Did not actually break anything.
+4. At one point kmod-nvidia blew up on a kernel update during the Fedora 13 time frame.  The kmod was from RPMFusion and of nvidia's proprietary binaries... kind of an issue waiting to happen in the first place.  I moved to the akmod (self-rebuilding kernel mod) package and haven't had an issue since.
 
 I do have one habit that is rather mildly irritating to both myself and others, I am a big fan of playing with software that is _supposed_ to do task _X_ or have feature _Y_, but is not quite there yet.  Sometimes this is due to it being bleeding edge, other times its just poorly maintained software, or maybe the vendor was just a liar.  I have never had this habit destroy a system,  usually just project timeline delays or the need to find a better solution.
 
@@ -65,9 +66,9 @@ I install machines, turn on updating, and walk away.  They run.  I really do n
 
 Take into consideration that I have a fairly general philosophy about running software on systems am responsible for either installing or administering.
 
-  1. Install software from trusted repositories.  IE: the distribution + one (two is pushing it, but doable) external repository.
-  2. Do not configure repositories that have conflicting packages. (Do not turn on DAG and EPEL)
-  3. Avoid unpackaged software. Only install packaged software if you can.  If it is not packaged, can you package it? It is not that hard, and other people benefit from your work.
+1. Install software from trusted repositories.  IE: the distribution + one (two is pushing it, but doable) external repository.
+2. Do not configure repositories that have conflicting packages. (Do not turn on DAG and EPEL)
+3. Avoid unpackaged software. Only install packaged software if you can.  If it is not packaged, can you package it? It is not that hard, and other people benefit from your work.
 
 With those 3 things in mind I usually have no issue with my systems.
 

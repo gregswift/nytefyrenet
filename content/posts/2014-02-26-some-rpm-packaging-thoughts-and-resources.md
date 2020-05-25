@@ -8,6 +8,7 @@ tags = [
   "rpms",
 ]
 +++
+
 Hopefully in the next two days my topic of 'Using system level packaging' will get picked up at our internal unconference. In preparation for that I figured I would compile a little bit of my data into a post so that I point people to it as a reference.
 
 First off, try reading this [old blog post](http://nytefyre.net/2011/04/call-to-software-vendors-package-it-right/ "call to software vendors… package it right") by myself.

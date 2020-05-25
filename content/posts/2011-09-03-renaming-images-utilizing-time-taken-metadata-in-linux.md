@@ -6,6 +6,7 @@ tags = [
   "development",
 ]
 +++
+
 This is more of a reminder for myself, but i figured I'd put it here.  The wifey wanted me to fix the naming on some pictures so that they were named based on their date.  Instead of manually doing so a quick search on Google showed me that the identify program that comes with the ImageMagick package in Linux will give me access to the data on the command line.  Taking the data and some awk-fu I threw together this quick one liner:
 
 ```bash
@@ -42,7 +43,7 @@ do
 done
 ```
 
-So given a set of files named IMG\_2204.JPG, IMG\_2840.JPG, IMG_3204.JPG as a source into this we pull the following date:modify results (in order):
+So given a set of files named IMG_2204.JPG, IMG_2840.JPG, IMG_3204.JPG as a source into this we pull the following date:modify results (in order):
 
 ```bash
 date:modify: 2011-03-30T20:22:46-05:00

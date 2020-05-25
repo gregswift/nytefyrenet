@@ -7,6 +7,7 @@ tags = [
   "linux",
 ]
 +++
+
 My wife just had some maternity photos taken, and they came out wonderfully. I went to import them into [Shotwell](http://yorba.org/shotwell/ "Shotwell Open Source Photo manager") so we could upload them to her [Picasa](http://picasaweb.google.com "Picasa Web Albums") web albums (sorry, no link to her pictures)  and all the images imported in the year 2001 folder. I looked at the data and while their time stamps seemed reasonably correct, their date stamp was well over 10 years off.
 
 I use Linux for my operating system, and a few quick good searches turned up the [man page for the program exiv2](http://linux.die.net/man/1/exiv2 "man exiv2"). And while a man page got me there, I figured it would not hurt to provide an example (both for myself and any of you lucky people who stumble upon it).
@@ -48,7 +49,7 @@ So it says in bold up there that this image was taken on March 10th, 2001 at 03:
 [xaeth@nytefyre Maternity]$ exiv2 <span style="color: #00ccff;">-Y 10</span> <span style="color: #00ff00;">-O 7</span> <span style="color: #ff00ff;">-D 5</span> <span style="color: #ff0000;">-a 12:00:00</span> <span style="color: #ff6600;">ad</span> image.jpg
 ```
 
-The command does not return a visible success, which is very common for *nix applications.  But before we verify it you might be asking youself, "self, what the heck is that <span style="color: #ff6600;">ad</span> in the middle of his command?".  Well self, that is an _action_, telling exiv2 that it has to do something.  This is optional if the switches you are providing imply it.  All the switches I am using do, so my use was just overly explicit.  Anyway, as I was saying, there are other ways to verify if the command ran successfully that I won't go into here, but what better way than to check the metadata again!
+The command does not return a visible success, which is very common for \*nix applications.  But before we verify it you might be asking youself, "self, what the heck is that <span style="color: #ff6600;">ad</span> in the middle of his command?".  Well self, that is an _action_, telling exiv2 that it has to do something.  This is optional if the switches you are providing imply it.  All the switches I am using do, so my use was just overly explicit.  Anyway, as I was saying, there are other ways to verify if the command ran successfully that I won't go into here, but what better way than to check the metadata again!
 
 ```bash
 [xaeth@nytefyre Maternity]$ exiv2 image.jpg

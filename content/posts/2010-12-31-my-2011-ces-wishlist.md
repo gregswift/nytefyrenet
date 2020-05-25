@@ -7,6 +7,7 @@ tags = [
   'nokia',
 ]
 +++
+
 Here goes, my first _real_ entry to this failed experiment of a blog.  Wish me luck.
 
 Back in 2007 I was fortunate enough to attend <a title="Consumer Electronics Show" href="http://www.cesweb.org/" target="_blank">CES</a> and was a heck of a trip. It was awesome to get to visit all of those manufacturer's booths, and the most awesome thing I witnessed was a transparently cased homagé to Zero Cool's present from The Plague in the movie <a title="IMDB page for Hackers" href="http://www.imdb.com/title/tt0113243/" target="_blank">Hackers</a>. They had a rare lab prototype of the <a title="Video of transparent Toshiba Protege R400" href="http://1m1f.com/video/hIwtEvu_tHU/Toshiba-Portege-R400.html" target="_blank">Toshiba Protégé R400</a>.

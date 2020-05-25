@@ -1,7 +1,7 @@
 +++
 title = "Renaming images utilizing time taken metadata in linux"
 date = 2011-09-03T17:48:48-05:00
-tags: [
+tags = [
   "development",
 ]
 +++

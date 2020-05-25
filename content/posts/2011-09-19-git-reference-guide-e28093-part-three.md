@@ -1,7 +1,7 @@
 +++
 title = "git reference guide – part three"
 date = 2011-09-19T20:39:03-05:00
-tags: [
+tags = [
   "development",
   "git",
 ]

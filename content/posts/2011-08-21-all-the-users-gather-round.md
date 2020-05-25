@@ -1,7 +1,7 @@
 +++
 title = "All the users gather round"
 date = 2011-08-21T17:07:59-05:00
-tags: [
+tags = [
   "development",
 ]
 +++

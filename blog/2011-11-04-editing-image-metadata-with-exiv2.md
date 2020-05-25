@@ -1,9 +1,9 @@
 +++
-title: Editing image metadata with exiv2
-date: 2011-11-04T22:27:17-05:00
+title = Editing image metadata with exiv2
+date = 2011-11-04T22:27:17-05:00
 tags:
-  - images
-  - linux
+  "images",
+  "linux",
 ]
 +++
 My wife just had some maternity photos taken, and they came out wonderfully. I went to import them into [Shotwell](http://yorba.org/shotwell/ "Shotwell Open Source Photo manager") so we could upload them to her [Picasa](http://picasaweb.google.com "Picasa Web Albums") web albums (sorry, no link to her pictures)  and all the images imported in the year 2001 folder. I looked at the data and while their time stamps seemed reasonably correct, their date stamp was well over 10 years off.

@@ -1,8 +1,8 @@
 +++
-title: Kickstarting Fedora 21 Workstation with Cobbler
-date: 2015-02-25T12:35:09-05:00
-categories:
-  - general
+title = Kickstarting Fedora 21 Workstation with Cobbler
+date = 2015-02-25T12:35:09-05:00
+tags:
+  "general",
 ]
 +++
 > Quick warning. I&#8217;m writing this as more of a post-mortum. I didn&#8217;t get all the errors recorded, and I realize that will make this hard for some people to find. I am also simplifyingthe process a bit more than what I actually went through, so some of it might not be perfect. I&#8217;ll try to make that better, but don&#8217;t hold your breath on me re-creating all the things that failed just to update this.

@@ -1,10 +1,10 @@
 +++
-title: 'puppet tricks: staging puppet'
-date: 2011-11-11T23:03:30-05:00
+title = 'puppet tricks: staging puppet'
+date = 2011-11-11T23:03:30-05:00
 tags:
-  - development
-  - linux
-  - puppet
+  "development",
+  "linux",
+  "puppet",
 ]
 +++
 As I have been learning [puppet](http://puppetlabs.com/puppet/how-puppet-works/ "How Puppet Works") @dayjob one of the things I have been striving to deal with is [order of operations](http://docs.puppetlabs.com/learning/ordering.html "Ordering with Puppet").  Puppet supports a few resource references, such as _before, after, notify,_ and _subscribe._ But my classes were quickly becoming slightly painful to define all these in, when the reality was there was not always hard dependencies so much as a preferred order.  After having issues with this for a while and researching other parts of puppet I stumbled across some mention of run stages, which were added in the 2.6.0 release of puppet.  If you read through the [language guide](https://www.puppetlabs.com/guides/language_guide.html "Puppet Language Guide") they are mentioned.  There has always been a single default stage, _main_.  But now you add as many as you want.  To define a stage you have to go into a manifest such as your **site.pp** and define the stages, like so:

@@ -1,9 +1,9 @@
 +++
-title: puppet via apache using passenger from epel
-date: 2012-10-04T09:51:36-05:00
-categories:
-  - linux
-  - puppet
+title = puppet via apache using passenger from epel
+date = 2012-10-04T09:51:36-05:00
+tags:
+  "linux",
+  "puppet",
 ]
 +++
 I put together this serious of steps a few years ago long before Passenger made its way into Fedora/EPEL, when it was required putting together write ups from all over the place. Its easier now, but I&#8217;ve updated it and am publishing it to my blog because someone had expressed interest, and for my own use.

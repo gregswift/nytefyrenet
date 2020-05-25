@@ -1,9 +1,9 @@
 +++
-title: Creating signed debian apt repository
-date: 2013-03-18T22:25:18-05:00
-categories:
-  - general
-  - linux
+title = Creating signed debian apt repository
+date = 2013-03-18T22:25:18-05:00
+tags:
+  "general",
+  "linux",
 ]
 +++
 **Update:** 2014.03.19 Use [freight](https://github.com/rcrowley/freight "freight - apt repositories made simple")

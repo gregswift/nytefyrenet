@@ -1,9 +1,9 @@
 +++
-title: 'git reference guide &#8211; part one'
-date: 2011-09-05T16:29:49-05:00
+title = 'git reference guide &#8211; part one'
+date = 2011-09-05T16:29:49-05:00
 tags:
-  - development
-  - git
+  "development",
+  "git",
 ]
 +++
 I&#8217;m still getting used to utilizing git for my version control. The part I like most is the merge handling. So here is another reference post for me, hopefully it will help me remember bits of my git work flow. Mostly basics, and some I do not need to remind myself, but it does not hurt to document.

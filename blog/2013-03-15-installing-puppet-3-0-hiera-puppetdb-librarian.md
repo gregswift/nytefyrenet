@@ -1,8 +1,8 @@
 +++
-title: installing puppet 3.0 + hiera + puppetdb + librarian
-date: 2013-03-15T10:29:14-05:00
-categories:
-  - general
+title = installing puppet 3.0 + hiera + puppetdb + librarian
+date = 2013-03-15T10:29:14-05:00
+tags:
+  "general",
 ]
 +++
 ## What we are doing

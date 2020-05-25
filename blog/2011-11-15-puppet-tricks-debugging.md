@@ -1,10 +1,10 @@
 +++
-title: 'puppet tricks: debugging'
-date: 2011-11-15T21:29:57-05:00
+title = 'puppet tricks: debugging'
+date = 2011-11-15T21:29:57-05:00
 tags:
-  - development
-  - linux
-  - puppet
+  "development",
+  "linux",
+  "puppet",
 ]
 +++
 **Update:** (2012/9/30) I came up with this around the time I was using 0.25.  Apparently now you can do similar utilizing the &#8211;debug switch on the client along with debug() calls. I thought the function was only part of [PuppetLab](http://puppetlabs.com/ "PuppetLabs")&#8216;s [stdlib](http://forge.puppetlabs.com/puppetlabs/stdlib "Puppet Forge page for stdlib"), but apparently its in base, at least in 2.7+. I&#8217;ll probably do a part 2 to this with more info, although there isn&#8217;t much more.

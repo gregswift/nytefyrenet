@@ -1,9 +1,9 @@
 +++
-title: nokia connection 2011
-date: 2011-06-20T22:01:45-05:00
-categories:
-  - meego
-  - nokia
+title = nokia connection 2011
+date = 2011-06-20T22:01:45-05:00
+tags:
+  "meego",
+  "nokia",
 ]
 +++
 So&#8230; its been a while since I&#8217;ve commented on the state of affairs with nokia&#8230; mainly cause I&#8217;ve had very little reason to care.  However, Nokia Connections is starting shortly, and in another window I am streaming the presentation that will start it all off.  So while I wait for the presentation to begin (it has been beginning shortly for at least 20m) I figured I&#8217;d comment on the recent big rumors that have been running around are that this is when Nokia will announce a MeeGo device, that it will actually sell!  Be still, my beating heart.  Within the last month in a  half two videos were released, [here](http://mynokiablog.com/2011/05/19/nokia-pulls-nokia-n9-teaser-vid-from-youtube/ "PocketNow article about Jesse's Girl Video") and [here](http://www.viddler.com/explore/engadget/videos/1515/ "Nokia E9? teaser").   The word is that Nokia will be discussing several new devices, including a _disruptive_ device.  During the Elopcalypse it was said that the group responsible for MeeGo would continue working on future distruptive technologies, such as MeeGo.

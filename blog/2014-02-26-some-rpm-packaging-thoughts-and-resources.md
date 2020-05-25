@@ -1,10 +1,10 @@
 +++
-title: Some RPM packaging thoughts and resources
-date: 2014-02-26T12:26:26-05:00
-categories:
-  - development
-  - linux
-  - rpms
+title = Some RPM packaging thoughts and resources
+date = 2014-02-26T12:26:26-05:00
+tags:
+  "development",
+  "linux",
+  "rpms",
 ]
 +++
 Hopefully in the next two days my topic of &#8216;Using system level packaging&#8217; will get picked up at our internal unconference. In preparation for that I figured I would compile a little bit of my data into a post so that I point people to it as a reference.

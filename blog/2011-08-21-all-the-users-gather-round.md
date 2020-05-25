@@ -1,8 +1,8 @@
 +++
-title: All the users gather round
-date: 2011-08-21T17:07:59-05:00
-categories:
-  - development
+title = All the users gather round
+date = 2011-08-21T17:07:59-05:00
+tags:
+  "development",
 ]
 +++
 Linux has two classification of accounts.  System accounts and User accounts.  System accounts are delineated as any account with a UID lower than the defined UID\_MIN value in the /etc/login.defs file, with the UID of 0 being reserved for the root account.  Red Hat based distributions systems set UID\_MIN to 500, which is a deviation from the upstream project, shadow-utils, which uses of 1000.  Some of these UIDs are considered to be statically allocated and others for dynamically allocated.  In the upstream distribution Fedora there are currently static UIDs up to 173.  There is no clear definition of where the dynamically allocated UIDs start, but within Fedora as of version 16 and higher there is currently <a title="Fedora Features - 1000 System Accounts" href="http://fedoraproject.org/wiki/Features/1000SystemAccounts" target="_blank">a plan</a> to help define this more clearly.  One part of that plan is that Fedora upping their definition of UID_MIN to the upstream 1000.  If the feature makes it in this will still not effect RHEL until version 7 at the earliest.  I&#8217;m honestly not sure if any other distribution has a clearer definition of the usage of these, but if not maybe that will change.

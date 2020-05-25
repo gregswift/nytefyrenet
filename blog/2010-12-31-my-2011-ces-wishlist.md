@@ -1,7 +1,7 @@
 +++
-title: my 2011 CES wishlist
-date: 2010-12-31T10:49:27-05:00
-categories: [
+title = my 2011 CES wishlist
+date = 2010-12-31T10:49:27-05:00
+tags = [
   'meego',
   'nokia',
 ]

@@ -1,10 +1,10 @@
 +++
-title: getting func-y
-date: 2011-04-07T21:55:54-05:00
-categories:
-  - certmaster
-  - development
-  - func
+title = getting func-y
+date = 2011-04-07T21:55:54-05:00
+tags:
+  "certmaster",
+  "development",
+  "func",
 ]
 +++
 So it happened.  What you ask?  A very long anticipated release.  <a title="Gnome 3 Release Announcement" href="http://www.gnome.org/" target="_blank">Gnome 3</a>! Wait, no&#8230; well, yes, Gnome 3 was released, and is kinda kewl and you can <a title="Gnome 3 Try It Live Download" href="http://www.gnome3.org/tryit.html" target="_blank">try it</a>.  I&#8217;m not totally sold on it yet though, maybe I&#8217;ll review it sometime or another. Oh wait, what was I talking about? Yes! The much anticipated release! It was not Gnome 3&#8230; it was <a title="Func Homepage" href="http://fedoraproject.org/func" target="_blank">Func</a> and <a title="Certmaster homepage" href="http://fedoraprooject.org/certmaster" target="_blank">Certmaster</a>!  They have <a title="Func 0.28 Release Announce" href="https://www.redhat.com/archives/func-list/2011-April/msg00010.html" target="_blank">officially reached 0.28</a>.  Ya.. not as fancy of a version number as 3, but.. hey it gives us something to aspire to.  The releases will be making their way into EPEL-testing soon, but can currently be downloaded in tarball form or from koji.[1]

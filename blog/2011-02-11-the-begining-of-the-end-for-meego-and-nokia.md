@@ -1,9 +1,9 @@
 +++
-title: the begining of the end for meego and nokia?
-date: 2011-02-11T07:55:54-05:00
-categories:
-  - meego
-  - nokia
+title = the begining of the end for meego and nokia?
+date = 2011-02-11T07:55:54-05:00
+tags:
+  "meego",
+  "nokia",
 ]
 +++
 So the rumors have come to a climax this morning as over in merry ole England  ex-MS-exec/CEO of Nokia has announced that Nokia will be <a title="Noki moving to WP7" href="http://conversations.nokia.com/2011/02/11/welcome-to-the-third-ecosystem/trackback/" target="_blank">moving their smartphone focus to Windows Phone 7 (WP7)</a>.  QT is no longer <a title="Nokia adopts HTML5 and QT" href="http://press.nokia.com/2010/10/21/nokia-further-refines-development-strategy-to-unify-environments-for-symbian-and-meego/" target="_blank"><em><strong>the</strong></em> development platform</a>, the one that &#8220;cuts development time by nearly 50%&#8221; or that &#8220;94% report..meets or exceeds their development expectations&#8221; and was intended to allow you to &#8220;write code once to target multiple platforms&#8221; (all quotes from the qt.nokia.com pages).

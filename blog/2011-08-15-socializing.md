@@ -1,8 +1,8 @@
 +++
-title: socializing
-date: 2011-08-15T18:11:54-05:00
-categories:
-  - general
+title = socializing
+date = 2011-08-15T18:11:54-05:00
+tags:
+  "general",
 ]
 +++
 Anyone that knows me knows that I never had a myspace or facebook account.  While I know that my adamant refusal to establish a presence on those sites seemed like it might be a bit of an elitist attitude, it was actually more of a &#8220;oh no, not again&#8221; reaction.

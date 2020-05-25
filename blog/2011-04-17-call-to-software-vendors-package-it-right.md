@@ -1,11 +1,11 @@
 +++
-title: 'call to software vendors&#8230; package it right'
-date: 2011-04-17T16:11:24-05:00
-categories:
-  - development
-  - linux
-  - puppet
-  - rpms
+title = 'call to software vendors&#8230; package it right'
+date = 2011-04-17T16:11:24-05:00
+tags:
+  "development",
+  "linux",
+  "puppet",
+  "rpms",
 ]
 +++
 One of the tasks that I have been responsible for performing over the last several years is packaging software into RPM Package Manager (RPM) packages.  All of our internal RPMs are fairly simple, the tricky part is the 3rd party software.  There are several problems with the distribution of commercial off the shelf (COTS) software in the Linux ecosystem.

@@ -1,8 +1,8 @@
 +++
-title: jumping out the window
-date: 2011-10-24T11:08:33-05:00
+title = jumping out the window
+date = 2011-10-24T11:08:33-05:00
 tags:
-  - linux
+  "linux",
 ]
 +++
 So, its time to feed the troll.  I do try and avoid this usually, but I was [channeling some xkcd](http://xkcd.com/386/ "Duty Calls") when I wrote this.

@@ -1,10 +1,10 @@
 +++
-title: Can maintaining package dependencies in RPM be magic?
-date: 2015-04-22T15:39:22-05:00
-tags:
-  - development
-  - fedora
-  - rpms
+title = Can maintaining package dependencies in RPM be magic?
+date = 2015-04-22T15:39:22-05:00
+tags = [
+  "development",
+  "fedora",
+  "rpms",
 ]
 +++
 One of the biggest complaints I hear about packaging software is packaging up all the dependencies, and then being responsible for keeping them current. Obviously, this is not the only complaint.. but i&#8217;m not talking about the others at the moment.

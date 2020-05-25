@@ -1,7 +1,7 @@
 +++
-title: 'xkcd&#8217;s How to write good code'
-date: 2011-01-08T18:03:02-05:00
-tags: [
+title = 'xkcd&#8217;s How to write good code'
+date = 2011-01-08T18:03:02-05:00
+tags = [
   'development',
 ]
 +++

@@ -1,7 +1,6 @@
 +++
 title = "getting func-y"
 date = 2011-04-07T21:55:54-05:00
-sort_by = date
 tags = [
   "certmaster",
   "development",

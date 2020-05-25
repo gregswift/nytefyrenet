@@ -1,7 +1,6 @@
 +++
 title = "Can maintaining package dependencies in RPM be magic?"
 date = 2015-04-22T15:39:22-05:00
-sort_by = date
 tags = [
   "development",
   "fedora",

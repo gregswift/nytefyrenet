@@ -1,7 +1,6 @@
 +++
 title = "Restart the flow"
 date = 2014-05-16T15:39:18-05:00
-sort_by = date
 tags = [
   "general",
 ]

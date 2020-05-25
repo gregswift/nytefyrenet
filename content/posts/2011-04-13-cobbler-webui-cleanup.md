@@ -1,7 +1,6 @@
 +++
 title = "cobbler webUI cleanup"
 date = 2011-04-13T19:23:29-05:00
-sort_by = date
 tags = [
   "cobbler",
   "development",

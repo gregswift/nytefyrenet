@@ -1,7 +1,6 @@
 +++
 title = "Editing image metadata with exiv2"
 date = 2011-11-04T22:27:17-05:00
-sort_by = date
 tags = [
   "images",
   "linux",

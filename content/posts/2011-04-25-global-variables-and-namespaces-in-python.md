@@ -1,7 +1,6 @@
 +++
 title = "Global Variables and Namespaces in python"
 date = 2011-04-25T09:45:13-05:00
-sort_by = date
 tags = [
   'development',
 ]

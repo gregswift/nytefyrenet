@@ -1,7 +1,6 @@
 +++
 title = "puppet tricks: debugging"
 date = 2011-11-15T21:29:57-05:00
-sort_by = date
 tags = [
   "development",
   "linux",

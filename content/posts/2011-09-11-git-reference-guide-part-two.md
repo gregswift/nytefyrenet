@@ -1,7 +1,6 @@
 +++
 title = "git reference guide - part two"
 date = 2011-09-11T19:20:57-05:00
-sort_by = date
 tags = [
   "development",
   "git",

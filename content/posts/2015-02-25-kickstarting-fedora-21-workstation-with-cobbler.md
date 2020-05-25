@@ -1,7 +1,6 @@
 +++
 title = "Kickstarting Fedora 21 Workstation with Cobbler"
 date = 2015-02-25T12:35:09-05:00
-sort_by = date
 tags = [
   "general",
 ]

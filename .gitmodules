@@ -1,3 +1,9 @@
 [submodule "themes/sam"]
 	path = themes/sam
 	url = https://github.com/janbaudisch/zola-sam.git
+[submodule "themes/terminimal"]
+	path = themes/terminimal
+	url = https://github.com/pawroman/zola-theme-terminimal.git
+[submodule "themes/hermit_zola"]
+	path = themes/hermit_zola
+	url = https://github.com/VersBinarii/hermit_zola

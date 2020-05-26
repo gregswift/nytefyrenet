@@ -1,14 +1,19 @@
 # The URL the site will be built for
 base_url = "nytefyre.net"
 
+title = "nytefyre/net4.0"
+
+default_language = "en"
+
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
 
-theme = "sam"
+theme = "hermit_zola"
 
 # Whether to do syntax highlighting
 # Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
 highlight_code = true
+highlight_theme = "charcoal"
 
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
@@ -16,14 +21,38 @@ build_search_index = true
 # When set to "true", an RSS feed is automatically generated.
 generate_rss = true
 
+taxonomies = [
+    {name = "tags", rss = true},
+]
+
 [extra]
 # Put all your custom variables here
 date_format = "%F"
 
-sam_menu = [
-    { text = "posts", link = "/posts" },
-    { text = "about", link = "/about" },
-    { text = "github", link = "https://github.com/gregswift" }
+toc=true
+
+home_subtitle = "nytefyre/net4.0"
+
+footer_copyright = ' &#183; <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>'
+
+hermit_menu = [
+    { link = "/posts", name = "Posts" },
+    { link = "/tags", name = "Tags" },
+    { link = "/about", name = "About" },
 ]
 
-sam_bottom_menu = true
+hermit_social = [
+    { name = "twitter", link = "https://twitter.com/xaeth" },
+    { name = "github", link = "https://github.com/gregswift" },
+    { name = "linkedin", link = "https://linkedin.com/in/gregswift" },
+    { name = "email", link = "mailto:greg.swift@nytefyre.net" },
+]
+
+[extra.author]
+name = "Greg Swift"
+email = "greg.swift@nytefyre.net"
+homepage = "nytefyre.net"
+
+[extra.google_analytics]
+enable = false
+id = "UA-12850853-4"

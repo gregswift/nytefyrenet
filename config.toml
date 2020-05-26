@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "nytefyre.net"
+base_url = "http://nytefyre.net"
 
 title = "nytefyre/net4.0"
 
@@ -31,7 +31,7 @@ date_format = "%F"
 
 toc=true
 
-home_subtitle = "nytefyre/net4.0"
+home_subtitle = "something something words"
 
 footer_copyright = ' &#183; <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>'
 
@@ -51,7 +51,7 @@ hermit_social = [
 [extra.author]
 name = "Greg Swift"
 email = "greg.swift@nytefyre.net"
-homepage = "nytefyre.net"
+homepage = "http://nytefyre.net"
 
 [extra.google_analytics]
 enable = false

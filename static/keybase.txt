@@ -1,0 +1,64 @@
+==================================================================
+https://keybase.io/gregswift
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://nytefyre.net
+  * I am gregswift (https://keybase.io/gregswift) on keybase.
+  * I have a public key with fingerprint 3C28 7598 463B 112B B86E  4587 0700 5D32 D126 1D69
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "3c287598463b112bb86e458707005d32d1261d69",
+            "host": "keybase.io",
+            "key_id": "07005d32d1261d69",
+            "uid": "dbe500a8579f782cdc5b763a93a36100",
+            "username": "gregswift"
+        },
+        "service": {
+            "hostname": "nytefyre.net",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1401294952,
+    "expire_in": 157680000,
+    "prev": "8cc5de9b7f58cfc6847401840b86fa7265ad75cd6905fbb5790dc4e333ca9729",
+    "seqno": 4,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v2.0.22 (GNU/Linux)
+
+owFtkVtIFFEYx3fNSynBBl3MNGNIs1hs7pddI4IiwyLL6EGwbS5n1sl1ZpuZ1Vbz
+UlRSEZRG9SCGaUlQWlZYWJJt2UVQFlIhEMMk8QJlF0Uq6YzYW+flcL7v9/9/l3Nx
+6SJbhD3GloeHU5MUe/fz74It54yjsBQRNCmIuEqRAjB/yYrqBbpfV1QTcSGEiLMM
+xbEkTQgYhgsCSwOSYhmUQVFKInAJw2lMojnEieRrhqWANgJvgHRFgzH48CgSjP6H
+D8wnJAFQKMqzFMPJDIuLkkgJDE3wHMETNIaiFmgAXeULAaS9OvAaxYpsImVOBIaL
+FBFYTVu1FxA1aAI5qIN0FZhQ7Nc1UxM1H8zkm6bfZQnNoN8ii4HgWfDwCIoqwcGh
+oAjohqKpiAuDpGgqlilGohjOkRyFOxFwzK/owKNYBMXQLAqPVQYUQUtWFCkJcAIj
+U6woizRLMlDKkijcm8wzOE3xEkOJcAEoJQsCHBqVRBIQBCHyHINbazHAUVVDXCRs
+k/dCS0PxqrwZ0AFSFnvWnhhps0fYoqMirL+zxS5x/PvRwN2YP/GPajPXGOF1Jz8M
+taH9L5JPjPlSksPHc9X2qtabk7tCi9/cnskIj8vDW3eXVLp7a30JSaf3uT8261Nd
+LQPXbp2n3W0/pqcPBaoKXk2Uv1s5+b4v53chM5XesXEss5Mhs69mPd3m2NJD1PDl
+p8SM2eGdg23Jc99a7j+7lPV2vGFH3c8VoYHprqnr4bhWoid14vJBaixNG4rvONy5
+p73X6UhwpLEpdd39DzbNrsp9eWX14+rXQzc+hZIaQw31c101JYm+cxUzwZnl7dny
+lyP3Bkf2R8Y574xU5G2o/vpLdDc9LNvrqexr3B6Z2jra+bk/cxm5uWrtaFN9FFh/
+4MKTpuhm8i8=
+=G7v7
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/gregswift
+
+==================================================================

@@ -43,7 +43,7 @@ hermit_menu = [
 
 hermit_social = [
     { name = "twitter", link = "https://twitter.com/xaeth" },
-    { name = "github", link = "https://github.com/gregswift" },
+    { name = "github", link = "https://github.com/gregoryswift" },
     { name = "linkedin", link = "https://linkedin.com/in/gregswift" },
     { name = "email", link = "mailto:greg.swift@nytefyre.net" },
 ]

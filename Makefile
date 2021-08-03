@@ -10,18 +10,26 @@
 .SILENT: help
 
 # Shared variables across targets
-CONTENT_DIR = content/
-THEMES_DIR = themes/
+CONTENT_DIR = content
+OUTPUT_DIR = public
+THEMES_DIR = themes
 DOCKER_WORKDIR = /workdir
 CONTAINER_ENGINE ?= podman
 CE_RUN = $(CONTAINER_ENGINE) run -i --rm -w $(DOCKER_WORKDIR) -v $(PWD):$(DOCKER_WORKDIR):Z
 ZOLA_COMMAND := $(CE_RUN) j1mc/docker-zola:latest
 
+export
+
 help:   ## Show this help, includes list of all actions.
 	@awk 'BEGIN {FS = ":.*?## "}; /^.+: .*?## / && !/awk/ {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}' ${MAKEFILE_LIST}
 
 clean: ## Cleanup the local checkout
-	-rm -f *~
+	-rm -f *~ $(OUTPUT_DIR)
+
+.PHONY:.check-env-publish
+.check-env-publish:
+	@test $${TARGET_SYSTEM?WARN: Undefined TARGET_SYSTEM required to define scp target for publishing}
+	@test $${TARGET_DIR?WARN: Undefined TARGET_DIR required to define scp target for publishing}
 
 setup: ## Help make sure everything is available to use the repo
 
@@ -39,5 +47,5 @@ update-themes: setup
 build: setup ## Run markdown lint on the whole decisions directory
 	$(ZOLA_COMMAND) build
 
-publish: build  ## Send the files to hosting provider
-	scp -pr public/* u48059473@nytefyre.net:nytefyrenet4.0/
+publish: .check-env-publish build  ## Send the files to hosting provider
+	scp -pr $(OUTPUT_DIR)/* $(TARGET_SYSTEM):$(TARGET_DIR)/

@@ -10,9 +10,9 @@
 CONTENT_DIR = content
 OUTPUT_DIR = public
 THEMES_DIR = themes
-DOCKER_WORKDIR = /workdir
+CONTAINER_WORKDIR = /workdir
 CONTAINER_ENGINE ?= podman
-CE_RUN = $(CONTAINER_ENGINE) run -i --rm -w $(DOCKER_WORKDIR) -v $(PWD):$(DOCKER_WORKDIR):Z
+CE_RUN = $(CONTAINER_ENGINE) run -i --rm -w $(CONTAINER_WORKDIR) -v $(PWD):$(CONTAINER_WORKDIR):Z
 ZOLA_COMMAND := $(CE_RUN) j1mc/docker-zola:latest
 
 export

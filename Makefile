@@ -6,9 +6,6 @@
 
 -include .config.mk
 
-.PHONY: clean setup lint test format build publish
-.SILENT: help
-
 # Shared variables across targets
 CONTENT_DIR = content
 OUTPUT_DIR = public
@@ -20,9 +17,12 @@ ZOLA_COMMAND := $(CE_RUN) j1mc/docker-zola:latest
 
 export
 
+.PHONY:help
+.SILENT:help
 help:   ## Show this help, includes list of all actions.
 	@awk 'BEGIN {FS = ":.*?## "}; /^.+: .*?## / && !/awk/ {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}' ${MAKEFILE_LIST}
 
+.PHONY:clean
 clean: ## Cleanup the local checkout
 	-rm -f *~ $(OUTPUT_DIR)
 
@@ -31,21 +31,25 @@ clean: ## Cleanup the local checkout
 	@test $${TARGET_SYSTEM?WARN: Undefined TARGET_SYSTEM required to define scp target for publishing}
 	@test $${TARGET_DIR?WARN: Undefined TARGET_DIR required to define scp target for publishing}
 
-setup: ## Help make sure everything is available to use the repo
-
-lint: setup ## Run markdown lint on the whole decisions directory
+.PHONY:lint
+lint: ## Run markdown lint on the whole decisions directory
 	$(CE_RUN) tmknom/markdownlint --config=.markdownlint.json --ignore=$(THEMES_DIR) .
 
+.PHONY:test
 test: lint ## Standard entry point for running tests.
 
-format: setup ## Run markdown lint on the whole decisions directory
+.PHONY:format
+format: ## Run markdown lint on the whole decisions directory
 	$(CE_RUN) tmknom/prettier --parser=markdown --write='**/*.md' $(CONTENT_DIR)
 
-update-themes: setup
+.PHONY:update-themes
+update-themes:  ## Update all themes loaded as git submodules
 	git submodule update --init --recursive
 
-build: setup ## Run markdown lint on the whole decisions directory
+.PHONY:build
+build: ## Run markdown lint on the whole decisions directory
 	$(ZOLA_COMMAND) build
 
+.PHONY:publish
 publish: .check-env-publish build  ## Send the files to hosting provider
 	scp -pr $(OUTPUT_DIR)/* $(TARGET_SYSTEM):$(TARGET_DIR)/

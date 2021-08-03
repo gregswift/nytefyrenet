@@ -22,6 +22,10 @@ export
 help:   ## Show this help, includes list of all actions.
 	@awk 'BEGIN {FS = ":.*?## "}; /^.+: .*?## / && !/awk/ {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}' ${MAKEFILE_LIST}
 
+.PHONY:debug-%
+debug-%: ## Debug a variable by calling `make debug-VARIABLE`
+	@echo $(*) = $($(*))
+
 .PHONY:clean
 clean: ## Cleanup the local checkout
 	-rm -f *~ $(OUTPUT_DIR)
@@ -32,14 +36,14 @@ clean: ## Cleanup the local checkout
 	@test $${TARGET_DIR?WARN: Undefined TARGET_DIR required to define scp target for publishing}
 
 .PHONY:lint
-lint: ## Run markdown lint on the whole decisions directory
+lint: ## Run markdown lint on the whole directory, excluding themes
 	$(CE_RUN) tmknom/markdownlint --config=.markdownlint.json --ignore=$(THEMES_DIR) .
 
 .PHONY:test
 test: lint ## Standard entry point for running tests.
 
 .PHONY:format
-format: ## Run markdown lint on the whole decisions directory
+format: ## Autoformat markdown in content directory
 	$(CE_RUN) tmknom/prettier --parser=markdown --write='**/*.md' $(CONTENT_DIR)
 
 .PHONY:update-themes
@@ -47,9 +51,9 @@ update-themes:  ## Update all themes loaded as git submodules
 	git submodule update --init --recursive
 
 .PHONY:build
-build: ## Run markdown lint on the whole decisions directory
+build: ## Build content for publishing
 	$(ZOLA_COMMAND) build
 
 .PHONY:publish
-publish: .check-env-publish build  ## Send the files to hosting provider
+publish: .check-env-publish build  ## Send the files to hosting provider using scp
 	scp -pr $(OUTPUT_DIR)/* $(TARGET_SYSTEM):$(TARGET_DIR)/

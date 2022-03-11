@@ -13,7 +13,7 @@ THEMES_DIR = themes
 CONTAINER_WORKDIR = /workdir
 CONTAINER_ENGINE ?= podman
 CE_RUN = $(CONTAINER_ENGINE) run -i --rm -w $(CONTAINER_WORKDIR) -v $(PWD):$(CONTAINER_WORKDIR):Z
-ZOLA_COMMAND := $(CE_RUN) j1mc/docker-zola:latest
+ZOLA_COMMAND := $(CE_RUN) docker.io/j1mc/docker-zola:latest
 
 export
 
@@ -37,7 +37,7 @@ clean: ## Cleanup the local checkout
 
 .PHONY:lint
 lint: ## Run markdown lint on the whole directory, excluding themes
-	$(CE_RUN) tmknom/markdownlint --config=.markdownlint.json --ignore=$(THEMES_DIR) .
+	$(CE_RUN) docker.io/tmknom/markdownlint --config=.markdownlint.json --ignore=$(THEMES_DIR) .
 
 .PHONY:test
 test: ## Standard entry point for running tests.
@@ -48,7 +48,7 @@ check: lint test ## Standard entry point for running tests.
 
 .PHONY:format
 format: ## Autoformat markdown in content directory
-	$(CE_RUN) tmknom/prettier --parser=markdown --write='**/*.md' $(CONTENT_DIR)
+	$(CE_RUN) docker.io/tmknom/prettier --parser=markdown --write='**/*.md' $(CONTENT_DIR)
 
 .PHONY:update-themes
 update-themes:  ## Update all themes loaded as git submodules

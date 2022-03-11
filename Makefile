@@ -40,7 +40,11 @@ lint: ## Run markdown lint on the whole directory, excluding themes
 	$(CE_RUN) tmknom/markdownlint --config=.markdownlint.json --ignore=$(THEMES_DIR) .
 
 .PHONY:test
-test: lint ## Standard entry point for running tests.
+test: ## Standard entry point for running tests.
+	@echo "No tests configured"
+
+.PHONY:check
+check: lint test ## Standard entry point for running tests.
 
 .PHONY:format
 format: ## Autoformat markdown in content directory

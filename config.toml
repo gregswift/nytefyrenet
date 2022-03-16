@@ -54,5 +54,5 @@ email = "greg.swift@nytefyre.net"
 homepage = "http://nytefyre.net"
 
 [extra.google_analytics]
-enable = false
+enable = true
 id = "UA-12850853-4"

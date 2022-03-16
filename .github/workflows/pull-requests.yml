@@ -1,0 +1,24 @@
+name: Publish Site
+
+on:
+  pull-request:
+    types:
+    - assigned
+    paths:
+    - 'content/**'
+    - 'static/**'
+    - 'themes/**'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Run check
+      run: make check
+
+    - name: Render site
+      run: make build

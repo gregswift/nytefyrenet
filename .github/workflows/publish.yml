@@ -1,0 +1,34 @@
+name: Publish Site
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deployment:
+    environment: prod
+    env:
+      CONTAINER_ENGINE: docker
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Run check
+      run: make check
+
+    - name: Render site
+      run: make build
+
+    - name: Setup Deployment key
+      run: |
+        install -m 600 -D /dev/null ~/.ssh/id_rsa
+        echo "${{ secrets.DEPLOY_KEY }}" | base64 -d  > ~/.ssh/id_rsa
+        ssh-keyscan -H ${{ secrets.TARGET_SYSTEM }} > ~/.ssh/known_hosts
+
+    - name: Publish site
+      run: make publish
+      env:
+        TARGET_SYSTEM: ${{ secrets.TARGET_SYSTEM }} # This should be user@host
+

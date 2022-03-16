@@ -1,4 +1,4 @@
-name: Publish Site
+name: Pull Requests
 
 on:
   pull-request:

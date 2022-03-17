@@ -27,7 +27,6 @@ jobs:
     - name: Render site
       run: make build
 
-    steps:
     - name: Cached build
       uses: actions/cache@v2
       env:

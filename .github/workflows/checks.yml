@@ -1,10 +1,6 @@
 name: Checks
 
 on:
-  push:
-    branch:
-      - '**'
-      - '!main'
   pull-request:
     types:
     - assigned
@@ -12,6 +8,10 @@ on:
     - 'content/**'
     - 'static/**'
     - 'themes/**'
+  push:
+    branches:
+      - '**'
+      - '!main'
 
 jobs:
   checks:

@@ -1,18 +1,22 @@
 name: Publish Site
 
 on:
-  push:
+  workflow_run:
+    workflows:
+    - checks
     branches:
     - main
+    types:
+    - completed
 
 jobs:
   publish:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
     environment: prod
 
     env:
       CONTAINER_ENGINE: docker
-
-    needs: checks
 
     runs-on: ubuntu-latest
 

@@ -2,17 +2,29 @@ name: Publish Site
 
 on:
   push:
-    branches: [ main ]
+    branches:
+    - main
 
 jobs:
   publish:
     environment: prod
+
     env:
       CONTAINER_ENGINE: docker
+
+    needs: checks
 
     runs-on: ubuntu-latest
 
     steps:
+    - name: Retrieve cached build
+      uses: actions/cache@v2
+      env:
+        cache-name: build-output
+      with:
+        path: public/
+        key: ${{ runner.os }}-${{ env.cache-name }}
+
     - uses: actions/checkout@v2
 
     - name: Run check

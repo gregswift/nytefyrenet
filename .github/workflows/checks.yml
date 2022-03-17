@@ -1,6 +1,10 @@
-name: Pull Requests
+name: Checks
 
 on:
+  push:
+    branch:
+      - '**'
+      - '!main'
   pull-requests:
     types:
     - assigned
@@ -10,7 +14,7 @@ on:
     - 'themes/**'
 
 jobs:
-  pull-requests:
+  checks:
 
     runs-on: ubuntu-latest
 
@@ -22,3 +26,12 @@ jobs:
 
     - name: Render site
       run: make build
+
+    steps:
+    - name: Cached build
+      uses: actions/cache@v2
+      env:
+        cache-name: build-output
+      with:
+        path: public/
+        key: ${{ runner.os }}-${{ env.cache-name }}

@@ -1,7 +1,7 @@
 name: Checks
 
 on:
-  pull-request:
+  pull_request:
     types:
     - assigned
     paths:

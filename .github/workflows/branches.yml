@@ -3,7 +3,8 @@ name: Branch Changes
 on:
   push:
     branch:
-    - '!main'
+      - '*'
+      - '!main'
 
 jobs:
   branches:

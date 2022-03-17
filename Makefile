@@ -60,4 +60,4 @@ build: ## Build content for publishing
 
 .PHONY:publish
 publish: .check-env-publish build  ## Send the files to hosting provider using scp
-	scp -pr $(OUTPUT_DIR)/* $(TARGET_SYSTEM):$(TARGET_DIR)/
+	scp -o StrictHostKeyChecking=accept-new -pr $(OUTPUT_DIR)/* $(TARGET_SYSTEM):$(TARGET_DIR)/

@@ -1,16 +1,12 @@
-name: Pull Requests
+name: Branch Changes
 
 on:
-  pull-requests:
-    types:
-    - assigned
-    paths:
-    - 'content/**'
-    - 'static/**'
-    - 'themes/**'
+  push:
+    branch:
+    - '!main'
 
 jobs:
-  pull-requests:
+  branches:
 
     runs-on: ubuntu-latest
 

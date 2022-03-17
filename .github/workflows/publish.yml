@@ -5,7 +5,7 @@ on:
     branches: [ main ]
 
 jobs:
-  deployment:
+  publish:
     environment: prod
     env:
       CONTAINER_ENGINE: docker

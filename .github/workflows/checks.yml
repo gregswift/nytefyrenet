@@ -1,4 +1,4 @@
-name: Checks
+name: Run validation and build checks
 
 on:
   pull_request:
@@ -15,14 +15,18 @@ on:
 
 jobs:
   checks:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
 
     - name: Run check
       run: make check
+
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
 
     - name: Render site
       run: make build

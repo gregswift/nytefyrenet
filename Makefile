@@ -60,4 +60,4 @@ build: ## Build content for publishing
 
 .PHONY:publish
 publish: .check-env-publish build  ## Send the files to hosting provider using scp
-	rsync -e 'ssh -o StrictHostKeyChecking=accept-new' -tvz $(OUTPUT_DIR)/* $(TARGET_SYSTEM):$(TARGET_DIR)/
+	rsync -e 'ssh -o StrictHostKeyChecking=accept-new' -atvz $(OUTPUT_DIR)/* $(TARGET_SYSTEM):$(TARGET_DIR)/

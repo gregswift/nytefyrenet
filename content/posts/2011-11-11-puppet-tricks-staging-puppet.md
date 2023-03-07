@@ -9,7 +9,7 @@ tags = [
 ]
 +++
 
-As I have been learning [puppet](http://puppetlabs.com/puppet/how-puppet-works/ "How Puppet Works") @dayjob one of the things I have been striving to deal with is [order of operations](http://docs.puppetlabs.com/learning/ordering.html "Ordering with Puppet").  Puppet supports a few resource references, such as _before, after, notify,_ and _subscribe._ But my classes were quickly becoming slightly painful to define all these in, when the reality was there was not always hard dependencies so much as a preferred order.  After having issues with this for a while and researching other parts of puppet I stumbled across some mention of run stages, which were added in the 2.6.0 release of puppet.  If you read through the [language guide](https://www.puppetlabs.com/guides/language_guide.html "Puppet Language Guide") they are mentioned.  There has always been a single default stage, *main*.  But now you add as many as you want.  To define a stage you have to go into a manifest such as your **site.pp** and define the stages, like so:
+As I have been learning [puppet](http://puppetlabs.com/puppet/how-puppet-works/ "How Puppet Works") @dayjob one of the things I have been striving to deal with is [order of operations](http://docs.puppetlabs.com/learning/ordering.html "Ordering with Puppet").  Puppet supports a few resource references, such as _before, after, notify,_ and _subscribe._ But my classes were quickly becoming slightly painful to define all these in, when the reality was there was not always hard dependencies so much as a preferred order.  After having issues with this for a while and researching other parts of puppet I stumbled across some mention of run stages, which were added in the 2.6.0 release of puppet.  If you read through the [language guide](https://www.puppetlabs.com/guides/language_guide.html "Puppet Language Guide") they are mentioned.  There has always been a single default stage, _main_.  But now you add as many as you want.  To define a stage you have to go into a manifest such as your **site.pp** and define the stages, like so:
 
 ```ruby
 stage { [pre, post]: }
@@ -28,7 +28,7 @@ stage { 'pre': before => Stage['main'] }
 stage { 'post': require => Stage['main'] }
 ```
 
-It all depends on your style. So now that we have created the alternate stages, and told puppet what the ordering of these stages is, how do we associate our classes inside them?  It is fairly simple, when you are including a class or module you pass it in as a *class parameter.*  To do this they introduced an alternate method of "including" a class.  Before you would use one of these two methods:
+It all depends on your style. So now that we have created the alternate stages, and told puppet what the ordering of these stages is, how do we associate our classes inside them?  It is fairly simple, when you are including a class or module you pass it in as a _class parameter._  To do this they introduced an alternate method of "including" a class.  Before you would use one of these two methods:
 
 ```ruby
 class base {

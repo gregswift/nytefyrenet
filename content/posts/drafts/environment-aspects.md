@@ -95,7 +95,7 @@ The most recent addition to my list, and to be honest thats because we had final
 
 * api.frontend-01.dev.g01
 * db-01.platform.staging.g01
-* web-01.identity-03.prod.g02
+* web-01.identity-03.prod-g02 # if you remove the `g` then its easy to mix instance with generation - [Greg's Pro-Tip #48 - Disambiguate]
 * api.auth.internal.pre-prod.g02
 * api.signup.i01.g03
 
@@ -105,8 +105,8 @@ This will likely be the most obvious, but I've a few thoughts here.  First, [Gre
 
 ### Examples (continuing to build)
 
-* api.frontend-01.dev.g01.us-east-1
+* api.frontend-01.us-east-1.dev.g01
 * db-01.platform.staging.g01.us-west-2
-* web-01.identity-03.prod.g02.eu-frankfurt
+* web-01.identity-03.eu-frankfurt.prod-02
 * api.auth.internal.pre-prod.g02.australiasoutheast
 * api.signup.i01.g03.us-central1-a

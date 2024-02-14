@@ -3,7 +3,10 @@
 
 * Dealing w/ alerting on build/decom seems to be a consistently painful and inconsistent
 * Most companies don’t leverage PagerDuty’s services as services, they do Service = ( Team | Urgency for a Team | Alert Channel for a Team)
-Really, many barely leverage PagerDuty except as a scheduler+pager (which… normal, but very expensive).
+
+
+I've now worked with PagerDuty for over a decade and talked to engineers at multiple companies that use it.  I get why its still the heap, but really, it tends to be barely leverage PagerDuty except as a scheduler+pager. This is its original purpose, but jsut for that it has become a very expensive path.
+
 Very little in Pagerduty seems to be terraformized.
 Most companies don’t have a lot of encouraged shareable best practices around using PagerDuty, its very much "there is our tool
 

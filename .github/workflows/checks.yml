@@ -1,6 +1,7 @@
 name: Run validation and build checks
 
 on:
+  workflow_dispatch:
   pull_request:
     types:
     - assigned

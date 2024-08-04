@@ -22,21 +22,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Retrieve cached build
-      uses: actions/cache@v4
-      env:
-        cache-name: build-output
-      with:
-        path: public/
-        key: ${{ runner.os }}-${{ env.cache-name }}
-
     - uses: actions/checkout@v4
-
-    - name: Run check
-      run: make check
-
-    - name: Render site
-      run: make build
 
     - name: Setup Deployment key
       run: |

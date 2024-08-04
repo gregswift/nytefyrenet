@@ -7,7 +7,7 @@ on:
     - assigned
   push:
     branches:
-      - '**'
+      - '!main'
 
 jobs:
   checks:
@@ -18,7 +18,6 @@ jobs:
     - name: Run check
       run: make check
 
-
   build:
     runs-on: ubuntu-latest
     steps:
@@ -26,11 +25,3 @@ jobs:
 
     - name: Render site
       run: make build
-
-    - name: Cached build
-      uses: actions/cache@v4
-      env:
-        cache-name: build-output
-      with:
-        path: public/
-        key: ${{ runner.os }}-${{ env.cache-name }}

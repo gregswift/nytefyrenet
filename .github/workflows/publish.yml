@@ -18,11 +18,13 @@ jobs:
 
     env:
       CONTAINER_ENGINE: docker
+      TARGET_SYSTEM: ${{ vars.TARGET_SYSTEM }}
+      TARGET_PORT: ${{ vars.TARGET_PORT }}
+      TARGET_DIR: ${{ vars.TARGET_DIR }}
 
     runs-on: ubuntu-latest
 
     steps:
-    - run: env
     - uses: actions/checkout@v4
 
     - name: Setup Deployment key

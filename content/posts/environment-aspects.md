@@ -1,6 +1,7 @@
 +++
 title = "6 Key Aspects of Architecting Your Environments for Sprawl"
 date = 2023-05-31T10:49:27-05:00
+draft = true
 +++
 
 Naming is Hard, but often times when it comes to environments [read: 1 or more systems deployed together] Naming is Hard because there is so much to cover and sooo many constraints.

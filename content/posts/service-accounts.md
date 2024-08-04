@@ -1,3 +1,9 @@
++++
+title = "Service Accounts"
+date = 2023-05-31T10:49:27-05:00
+draft = true
++++
+
 Tell me if this sounds familar.  You start a new job and notice that there are still a bunch of changes happening on all these different applications that your team or the company use.  You ask for information on it and find out that they are having to re-authenticate a bunch of systems because the original setup was done by the employee they hired you to replace.  It probably comes as no suprise, and its good they are getting it cleaned up.
 
 But what path did they use to fix it?  Hopefully, a service account, but not always.

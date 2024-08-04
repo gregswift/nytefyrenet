@@ -1,4 +1,8 @@
-
++++
+title = "Getting more bang for your buck with PagerDuty"
+date = 2023-05-31T10:49:27-05:00
+draft = true
++++
 # Problems or at least statements of reality
 
 * Dealing w/ alerting on build/decom seems to be a consistently painful and inconsistent

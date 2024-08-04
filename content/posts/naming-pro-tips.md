@@ -1,6 +1,7 @@
 +++
 title = "Naming Pro Tips"
 date = 2023-05-31T10:49:27-05:00
+draft = true
 +++
 So, naming is hard. We've all agreed with this for a long while now.
 

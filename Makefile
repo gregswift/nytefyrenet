@@ -15,6 +15,8 @@ CONTAINER_ENGINE ?= podman
 CE_RUN = $(CONTAINER_ENGINE) run -i --rm -w $(CONTAINER_WORKDIR) -v $(PWD):$(CONTAINER_WORKDIR):Z
 ZOLA_COMMAND := $(CE_RUN) docker.io/j1mc/docker-zola:latest
 
+TARGET_PORT := $(if $(TARGET_PORT),$(TARGET_PORT),22)
+
 export
 
 .PHONY:help
@@ -60,4 +62,4 @@ build: ## Build content for publishing
 
 .PHONY:publish
 publish: .check-env-publish build  ## Send the files to hosting provider using scp
-	rsync -e 'ssh -o StrictHostKeyChecking=accept-new' -atvz $(OUTPUT_DIR)/* $(TARGET_SYSTEM):$(TARGET_DIR)/
+	rsync -e 'ssh -o StrictHostKeyChecking=accept-new -p $(TARGET_PORT)' -atvz $(OUTPUT_DIR)/* $(TARGET_SYSTEM):$(TARGET_DIR)/

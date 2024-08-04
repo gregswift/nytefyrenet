@@ -6,8 +6,6 @@ on:
     types:
     - assigned
   push:
-    branches:
-      - '!main'
 
 jobs:
   checks:

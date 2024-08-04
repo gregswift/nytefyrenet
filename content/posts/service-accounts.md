@@ -29,11 +29,9 @@ So, following this duh moment I realized that lower complexity path of 'one serv
 * Save the creds and 2fa in a shared password manager (like 1password)
 * Never configure the username/password on anything but the `myteam-ci` system
 
-Cons:
+## Cons
+
 * pay per service account with systems like Okta
-
-
-
 
 [1] Let's be honest, most people will never rotate it anyway.  Something to be said for setting it up, and having the configured copy be the only existing copy.  Recreate to fix if it ever breaks. Minimal leakage potential.
 

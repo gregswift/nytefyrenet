@@ -23,7 +23,6 @@ generation
 
 6? That seems like a lot, or maybe not enough? You don't think you need all of this? I mean, fair. I didn't used to either.  Its important to note that Order in the hierarchy may vary between companies, but variance inside a company is a risk to the future maintainers, who will likely curse you.
 
-
 Before we start its important to call out [Greg's Pro-Tip #1 - NONE of these aspects should tie to your business organizational structure.]
 
 ## Workload
@@ -31,6 +30,7 @@ Before we start its important to call out [Greg's Pro-Tip #1 - NONE of these asp
 Each Application may have multiple components such as an api, web, database, cache layer, or any dozens+ of other types.  These are all different Workload types, you may have more, you may have less.  You may not even run them on separate servers when you are first starting off, which is not a great idea, but used to be super common.
 
 ### Examples
+
 * api
 * web
 * db

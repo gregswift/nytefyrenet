@@ -6,7 +6,7 @@ on:
     workflows:
     - "Run validation and build checks"
     branches:
-    - '!main'
+    - "!main"
     types:
     - completed
 

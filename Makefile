@@ -12,8 +12,8 @@ OUTPUT_DIR = public
 THEMES_DIR = themes
 CONTAINER_WORKDIR = /workdir
 CONTAINER_ENGINE ?= podman
-CE_RUN = $(CONTAINER_ENGINE) run -i --rm -w $(CONTAINER_WORKDIR) -v $(PWD):$(CONTAINER_WORKDIR):Z
-ZOLA_COMMAND := $(CE_RUN) docker.io/j1mc/docker-zola:latest
+CE_RUN = $(CONTAINER_ENGINE) run -i --rm -w $(CONTAINER_WORKDIR) -v $(PWD):$(CONTAINER_WORKDIR)
+ZOLA_COMMAND := $(CE_RUN) ghcr.io/getzola/zola:v0.19.1
 
 TARGET_PORT := $(if $(TARGET_PORT),$(TARGET_PORT),22)
 
@@ -30,7 +30,7 @@ debug-%: ## Debug a variable by calling `make debug-VARIABLE`
 
 .PHONY:clean
 clean: ## Cleanup the local checkout
-	-rm -f *~ $(OUTPUT_DIR)
+	-rm -rf *~ $(OUTPUT_DIR)
 
 .PHONY:.check-env-publish
 .check-env-publish:
@@ -59,6 +59,10 @@ update-themes:  ## Update all themes loaded as git submodules
 .PHONY:build
 build: ## Build content for publishing
 	$(ZOLA_COMMAND) build
+
+.PHONY:serve
+serve: ## Run a local instance of the site for debugging
+	$(ZOLA_COMMAND) serve
 
 .PHONY:publish
 publish: .check-env-publish build  ## Send the files to hosting provider using scp

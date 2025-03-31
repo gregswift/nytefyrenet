@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "http://nytefyre.net"
+base_url = "https://nytefyre.net"
 
 title = "nytefyre/net4.0"
 

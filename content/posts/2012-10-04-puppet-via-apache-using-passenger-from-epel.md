@@ -10,7 +10,7 @@ tags = [
 
 I put together this serious of steps a few years ago long before Passenger made its way into Fedora/EPEL, when it was required putting together write ups from all over the place. Its easier now, but I've updated it and am publishing it to my blog because someone had expressed interest, and for my own use.
 
-The goal of this set of steps is to enable the serving of Puppet through Apache using the Passenger module. mod_passenger to ruby what mod_cgi is to perl and mod_wsgi is to python. You would want to use this because Puppetmaster itself does not scale as well to large numbers of puppets. There are other options, but the whole thing is discussed more [here](http://projects.puppetlabs.com/projects/puppet/wiki/Puppet_Scalability).
+The goal of this set of steps is to enable the serving of Puppet through Apache using the Passenger module. mod_passenger to ruby what mod_cgi is to perl and mod_wsgi is to python. You would want to use this because Puppetmaster itself does not scale as well to large numbers of puppets. There are other options, but the whole thing is [discussed more elsewhere](http://projects.puppetlabs.com/projects/puppet/wiki/Puppet_Scalability).
 
 ## Pre-requisites
 
